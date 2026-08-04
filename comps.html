@@ -1,0 +1,186 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<meta name='theme-color' content='#0d1117'><title>Reserve — Comp Browser</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--line:#21262d;--line2:#30363d;--fg:#c9d1d9;--hd:#e6edf3;
+      --dim:#8b949e;--up:#3fb950;--down:#f85149;--link:#58a6ff;--accent:#d29922}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);margin:0;padding:20px clamp(12px,3vw,32px) 40px;
+     font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:1180px;margin-inline:auto}
+h1{font-size:clamp(18px,4vw,24px);margin:4px 0 2px;color:var(--hd)}
+h2{font-size:16px;margin:26px 0 10px;color:var(--hd);border-bottom:1px solid var(--line2);padding-bottom:6px}
+a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+.dim{color:var(--dim)} .up{color:var(--up)} .down{color:var(--down)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;align-items:end}
+.filters label{display:flex;flex-direction:column;font-size:11px;color:var(--dim);gap:3px;text-transform:uppercase;letter-spacing:.03em}
+.filters select,.filters input{background:var(--panel);color:var(--hd);border:1px solid var(--line2);
+  border-radius:8px;padding:7px 9px;font-size:13px;min-width:90px}
+.filters input[type=number]{width:100px}
+.strip{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:104px;flex:1 1 104px}
+.stat b{display:block;font-size:19px;color:var(--hd);font-variant-numeric:tabular-nums}
+.stat span{font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em}
+.chartwrap{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;margin:10px 0}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:720px}
+th{color:var(--dim);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line2);
+   position:sticky;top:0;background:var(--panel);font-size:11px;text-transform:uppercase}
+td{padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:none} tbody tr:hover td{background:#1c2330}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+.mono{font-family:ui-monospace,Menlo,monospace}
+.fob{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
+.fob label{display:flex;flex-direction:column;font-size:11px;color:var(--dim);gap:3px}
+.fob input,.fob select{background:var(--panel);color:var(--hd);border:1px solid var(--line2);border-radius:8px;padding:7px 9px;font-size:13px}
+.fobout{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:8px}
+.fobout b{color:var(--hd)}
+button{background:#1f6feb;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--fg)}
+.back{font-size:13px}
+@media(max-width:640px){ table{min-width:560px} }
+</style></head><body>
+<div class='back'><a href='./'>← Reserve board</a></div>
+<h1>Comp Browser</h1>
+<div class='dim' id='meta'>loading comps…</div>
+
+<div class='filters'>
+  <label>Car<select id='f_car'></select></label>
+  <label>Transmission<select id='f_tr'><option value=''>all</option></select></label>
+  <label>Variant<select id='f_sv'><option value=''>all</option></select></label>
+  <label>Window<select id='f_win'><option value='365'>12 mo</option><option value='730' selected>24 mo</option><option value=''>all</option></select></label>
+  <label>Year min<input id='f_ymin' type='number' placeholder='any'></label>
+  <label>Year max<input id='f_ymax' type='number' placeholder='any'></label>
+  <label>Miles max<input id='f_mi' type='number' placeholder='any'></label>
+  <label>Source<select id='f_src'><option value=''>all</option></select></label>
+  <label>Basis<select id='f_basis'><option value='hammer'>hammer</option><option value='allin'>all-in (+premium)</option></select></label>
+</div>
+
+<div class='strip'>
+  <div class='stat'><b id='s_n'>–</b><span>sales</span></div>
+  <div class='stat'><b id='s_med'>–</b><span>median</span></div>
+  <div class='stat'><b id='s_p25'>–</b><span>p25</span></div>
+  <div class='stat'><b id='s_p75'>–</b><span>p75</span></div>
+  <div class='stat'><b id='s_trend'>–</b><span>12m vs prior</span></div>
+</div>
+
+<div class='chartwrap'><svg id='chart' width='100%' height='130' viewBox='0 0 900 130' preserveAspectRatio='none'></svg>
+<div class='dim' style='font-size:11px'>monthly medians for current filter</div></div>
+
+<div class='scroll'><table id='tbl'><thead><tr>
+<th>date</th><th class='r'>price</th><th class='r'>miles</th><th>year</th><th>trans</th><th>variant</th><th>source</th><th>listing</th>
+</tr></thead><tbody></tbody></table></div>
+<div class='dim' id='shown' style='margin-top:6px'></div>
+
+<h2>Free-or-Better calculator</h2>
+<div class='dim'>Does the car pay for its own ownership? FoB v2 — appreciation (conviction- and cycle-adjusted) vs carry, with liquidity + transaction friction over your horizon.</div>
+<div class='fob'>
+  <label>Current value $<input id='c_val' type='number' value='85000'></label>
+  <label>Appreciation %/yr<input id='c_a' type='number' step='0.5' value='6'></label>
+  <label>Conviction<select id='c_conv'><option value='1.0'>1.0 — validated thesis</option><option value='0.85'>0.85 — strong</option><option value='0.7'>0.7 — plausible</option><option value='0.4'>0.4 — story</option></select></label>
+  <label>Cycle drag pp<input id='c_drag' type='number' step='0.5' value='3'></label>
+  <label>Carry %/yr<input id='c_carry' type='number' step='0.5' value='5.5'></label>
+  <label>DIY recapture pp<input id='c_diy' type='number' step='0.5' value='2.5'></label>
+  <label>Liquidity haircut %<input id='c_liq' type='number' step='1' value='12'></label>
+  <label>P(forced sale)<input id='c_pf' type='number' step='0.05' value='0.2'></label>
+  <label>Txn cost %<input id='c_txn' type='number' step='0.5' value='12'></label>
+  <label>Horizon yrs<input id='c_h' type='number' step='1' value='8'></label>
+</div>
+<div style='display:flex;gap:8px'>
+  <button onclick='fob()'>Compute</button>
+  <button class='ghost' onclick='useMedian()'>Use filtered median as value</button>
+</div>
+<div class='fobout' id='fobout' style='display:none'></div>
+
+<div class='dim' style='margin-top:30px;font-size:12px'>Data: clean sold comps (road cars, unmodified, clean-title) across BaT, Cars &amp; Bids, duPont REGISTRY Live, RM Sotheby's, SOMO. Hammer prices; all-in basis applies each house's published buyer-premium schedule. Refreshed with the board.</div>
+
+<script>
+let D=null, R=[];
+const $=s=>document.querySelector(s), money=n=>n==null?'–':'$'+Math.round(n).toLocaleString();
+fetch('comps.json').then(r=>r.json()).then(d=>{D=d;init();});
+function premium(src,h){const p=D.premiums[src]||D.premium_default;let f=Math.max(h*p[0],p[1]);if(p[2])f=Math.min(f,p[2]);return f;}
+function allin(src,h){return h+premium(src,h);}
+function init(){
+  const cars=Object.entries(D.cars).sort((a,b)=>a[1].localeCompare(b[1]));
+  $('#f_car').innerHTML=cars.map(([id,n])=>`<option value='${id}'>${n}</option>`).join('');
+  const params=new URLSearchParams(location.search);
+  if(params.get('car')&&D.cars[params.get('car')]) $('#f_car').value=params.get('car');
+  ['f_car','f_tr','f_sv','f_win','f_ymin','f_ymax','f_mi','f_src','f_basis'].forEach(id=>$('#'+id).addEventListener('change',refresh));
+  $('#meta').textContent=D.rows.length.toLocaleString()+' clean sold comps · '+cars.length+' models';
+  refresh();
+}
+function refresh(){
+  const car=$('#f_car').value;
+  const sub=D.rows.filter(r=>r[0]===car);
+  // dependent filter options
+  const trs=[...new Set(sub.map(r=>r[5]).filter(x=>x&&x!=='unknown'))].sort();
+  const svs=[...new Set(sub.map(r=>r[6]).filter(Boolean))].sort();
+  const srcs=[...new Set(sub.map(r=>r[7]).filter(Boolean))].sort();
+  setOpts('f_tr',trs); setOpts('f_sv',svs); setOpts('f_src',srcs);
+  const tr=$('#f_tr').value, sv=$('#f_sv').value, src=$('#f_src').value;
+  const win=$('#f_win').value, ymin=+$('#f_ymin').value||0, ymax=+$('#f_ymax').value||9999, mi=+$('#f_mi').value||1e9;
+  const cutoff=win?new Date(Date.now()-win*864e5).toISOString().slice(0,10):'';
+  const basis=$('#f_basis').value;
+  R=sub.filter(r=>(!tr||r[5]===tr)&&(!sv||r[6]===sv)&&(!src||r[7]===src)
+    &&(!cutoff||r[1]>=cutoff)&&(r[4]==null||(r[4]>=ymin&&r[4]<=ymax))&&(r[3]==null||r[3]<=mi));
+  const px=r=>basis==='allin'?allin(r[7],r[2]):r[2];
+  const prices=R.map(px).sort((a,b)=>a-b);
+  $('#s_n').textContent=R.length.toLocaleString();
+  $('#s_med').textContent=money(pct(prices,.5)); $('#s_p25').textContent=money(pct(prices,.25)); $('#s_p75').textContent=money(pct(prices,.75));
+  // trend: last 12m median vs prior 12m (within the CAR+facet filter, ignoring window)
+  const base=sub.filter(r=>(!tr||r[5]===tr)&&(!sv||r[6]===sv));
+  const now=Date.now(), y1=new Date(now-365*864e5).toISOString().slice(0,10), y2=new Date(now-730*864e5).toISOString().slice(0,10);
+  const m1=pct(base.filter(r=>r[1]>=y1).map(px).sort((a,b)=>a-b),.5), m0=pct(base.filter(r=>r[1]>=y2&&r[1]<y1).map(px).sort((a,b)=>a-b),.5);
+  const t=(m1&&m0)?((m1/m0-1)*100):null;
+  $('#s_trend').innerHTML=t==null?'–':`<span class='${t>=0?"up":"down"}'>${t>=0?'+':''}${t.toFixed(1)}%</span>`;
+  chart(px); table(px);
+}
+function setOpts(id,vals){
+  const el=$('#'+id), cur=el.value;
+  el.innerHTML=`<option value=''>all</option>`+vals.map(v=>`<option>${v}</option>`).join('');
+  if(vals.includes(cur))el.value=cur;
+}
+function pct(xs,p){if(!xs.length)return null;const k=(xs.length-1)*p,f=Math.floor(k),c=Math.min(f+1,xs.length-1);return xs[f]+(xs[c]-xs[f])*(k-f);}
+function chart(px){
+  const svg=$('#chart'); svg.innerHTML='';
+  const byM={};
+  R.forEach(r=>{const m=r[1].slice(0,7);(byM[m]=byM[m]||[]).push(px(r));});
+  const ms=Object.keys(byM).sort();
+  if(ms.length<3)return;
+  const meds=ms.map(m=>pct(byM[m].sort((a,b)=>a-b),.5));
+  const lo=Math.min(...meds),hi=Math.max(...meds),rng=(hi-lo)||1;
+  const X=i=>10+(i/(ms.length-1))*880, Y=v=>118-((v-lo)/rng)*106;
+  const up=meds[meds.length-1]>=meds[0], col=up?'#3fb950':'#f85149';
+  svg.innerHTML=`<polyline fill='none' stroke='${col}' stroke-width='2' stroke-linejoin='round' stroke-linecap='round' opacity='.9'
+    points='${meds.map((v,i)=>X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' ')}'/>`
+    +`<circle cx='${X(ms.length-1)}' cy='${Y(meds[meds.length-1])}' r='3.5' fill='${col}'/>`
+    +`<text x='10' y='12' fill='#8b949e' font-size='10'>${ms[0]} → ${ms[ms.length-1]}  ·  ${money(lo)}–${money(hi)}</text>`;
+}
+function table(px){
+  const tb=$('#tbl tbody'); const rows=R.slice(0,400);
+  tb.innerHTML=rows.map(r=>`<tr><td>${r[1]}</td><td class='r mono'>${money(px(r))}</td>
+    <td class='r mono'>${r[3]==null?'–':r[3].toLocaleString()}</td><td>${r[4]||''}</td>
+    <td>${r[5]||''}</td><td>${r[6]||''}</td><td class='dim'>${r[7]}</td>
+    <td><a href='${r[9]}' target='_blank'>${(r[8]||'').replace(/</g,'&lt;')}</a></td></tr>`).join('');
+  $('#shown').textContent=`showing ${rows.length.toLocaleString()} of ${R.length.toLocaleString()} (newest first)`;
+}
+function useMedian(){const m=$('#s_med').textContent.replace(/[$,]/g,'');if(m&&m!=='–')$('#c_val').value=Math.round(+m);fob();}
+function fob(){
+  const g=id=>+$('#'+id).value;
+  const a=g('c_a')/100, conv=+$('#c_conv').value, drag=g('c_drag')/100, c=g('c_carry')/100,
+        diy=g('c_diy')/100, L=g('c_liq')/100, pf=g('c_pf'), t=g('c_txn')/100, H=g('c_h'), val=g('c_val');
+  const cap=150000;
+  const a_adj=a*conv-drag, r=a_adj-c+diy;
+  const tr=Math.pow(1+r,H)-1-t-(L*pf);
+  const brk=r>1e-6?t/r:null;
+  const rAdj=r/(1+(L*pf)/H+val/cap);
+  const score=Math.max(0,Math.min(10,5+40*rAdj));
+  const verdict=(brk&&brk<=H&&tr>=0)?"<span class='up'>FREE-OR-BETTER clears</span>"
+    :(r<=0?"<span class='down'>negative carry — loses money</span>":"<span style='color:#d29922'>marginal / horizon-dependent</span>");
+  $('#fobout').style.display='block';
+  $('#fobout').innerHTML=`<b>${verdict}</b><br>
+    adjusted appreciation <b>${(a_adj*100).toFixed(2)}%</b> − carry ${(c*100).toFixed(1)}% + DIY ${(diy*100).toFixed(1)}% =
+    net <b>${(r*100).toFixed(2)}%/yr</b><br>
+    total ${H}-yr return after friction: <b class='${tr>=0?"up":"down"}'>${(tr*100).toFixed(1)}%</b>
+    · breakeven ${brk?brk.toFixed(1)+' yrs':'—'} · FoB score <b>${score.toFixed(1)}/10</b>`;
+}
+</script></body></html>
