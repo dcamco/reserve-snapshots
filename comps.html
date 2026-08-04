@@ -63,6 +63,8 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
   <div class='stat'><b id='s_trend'>–</b><span>12m vs prior</span></div>
 </div>
 
+<div class='fobout' id='intel' style='display:none;margin:0 0 10px'></div>
+
 <div class='chartwrap'><svg id='chart' width='100%' height='130' viewBox='0 0 900 130' preserveAspectRatio='none'></svg>
 <div class='dim' style='font-size:11px'>monthly medians for current filter</div></div>
 
@@ -70,6 +72,11 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 <th>date</th><th class='r'>price</th><th class='r'>miles</th><th>year</th><th>trans</th><th>variant</th><th>source</th><th>listing</th>
 </tr></thead><tbody></tbody></table></div>
 <div class='dim' id='shown' style='margin-top:6px'></div>
+
+<h2>Repeat sales — same-VIN chains</h2>
+<div class='dim'>Every car in the current filter that has sold more than once — realized flips, holds, and round-trips.</div>
+<div style='margin:10px 0'><input id='vinq' placeholder='…or search any VIN (all models)' style='background:var(--panel);color:var(--hd);border:1px solid var(--line2);border-radius:8px;padding:8px 11px;font-size:13px;width:min(360px,100%)'></div>
+<div id='chains' class='dim' style='font-size:13px'>—</div>
 
 <h2>Free-or-Better calculator</h2>
 <div class='dim'>Does the car pay for its own ownership? FoB v2 — appreciation (conviction- and cycle-adjusted) vs carry, with liquidity + transaction friction over your horizon.</div>
@@ -94,9 +101,11 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 <div class='dim' style='margin-top:30px;font-size:12px'>Data: clean sold comps (road cars, unmodified, clean-title) across BaT, Cars &amp; Bids, duPont REGISTRY Live, RM Sotheby's, SOMO. Hammer prices; all-in basis applies each house's published buyer-premium schedule. Refreshed with the board.</div>
 
 <script>
-let D=null, R=[];
+let D=null, I={}, R=[];
 const $=s=>document.querySelector(s), money=n=>n==null?'–':'$'+Math.round(n).toLocaleString();
-fetch('comps.json').then(r=>r.json()).then(d=>{D=d;init();});
+Promise.all([fetch('comps.json').then(r=>r.json()),
+             fetch('intel.json').then(r=>r.json()).catch(()=>({}))])
+  .then(([d,i])=>{D=d;I=i;init();});
 function premium(src,h){const p=D.premiums[src]||D.premium_default;let f=Math.max(h*p[0],p[1]);if(p[2])f=Math.min(f,p[2]);return f;}
 function allin(src,h){return h+premium(src,h);}
 function init(){
@@ -132,8 +141,57 @@ function refresh(){
   const m1=pct(base.filter(r=>r[1]>=y1).map(px).sort((a,b)=>a-b),.5), m0=pct(base.filter(r=>r[1]>=y2&&r[1]<y1).map(px).sort((a,b)=>a-b),.5);
   const t=(m1&&m0)?((m1/m0-1)*100):null;
   $('#s_trend').innerHTML=t==null?'–':`<span class='${t>=0?"up":"down"}'>${t>=0?'+':''}${t.toFixed(1)}%</span>`;
-  chart(px); table(px);
+  chart(px); table(px); intel(car); chains(px);
 }
+function intel(car){
+  const it=I[car], el=$('#intel');
+  if(!it||!it.available){el.style.display='none';return;}
+  el.style.display='block';
+  const pc=v=>v==null?'–':(v>=0?'+':'')+v+'%';
+  const vcol=/EARLY BUY/.test(it.verdict)?'up':(/FROTH|dead/.test(it.verdict)?'down':'dim');
+  el.innerHTML=`<b class='${vcol}'>${it.verdict}</b> · forward-demand <b>${it.forward_demand}</b> (${it.phase})
+    · rarity ${it.rarity}${it.survivors?' · ~'+it.survivors.toLocaleString()+' survivors':''}<br>
+    <span class='dim'>move 12m</span> ${pc(it.move_pct)} · <span class='dim'>ST trend</span> ${pc(it.st_trend_pct)}
+    · <span class='dim'>real CAGR</span> ${pc(it.real_cagr_pct)} · <span class='dim'>carry</span> ${it.carry_pct??'–'}%
+    · <span class='dim'>NET real</span> <b class='${(it.net_real_pct??0)>=0?"up":"down"}'>${pc(it.net_real_pct)}</b><br>
+    <span class='dim'>12m median</span> ${money(it.median_value)} · <span class='dim'>90d floor (all-in p25)</span> ${money(it.floor_90d)}
+    · <span class='dim'>sell-through 12m</span> ${it.sell_through_12m??'–'}% (${it.settled_12m} settled)
+    ${it.note?`<br><span class='dim'>${it.note}</span>`:''}`;
+}
+function chainRows(rows,px){
+  const byV={};
+  rows.forEach(r=>{if(r[10])((byV[r[10]]=byV[r[10]]||[]).push(r));});
+  return Object.entries(byV).filter(([,v])=>v.length>1)
+    .map(([vin,v])=>{v.sort((a,b)=>a[1]<b[1]?-1:1);return [vin,v];})
+    .sort((a,b)=>b[1][b[1].length-1][1]<a[1][a[1].length-1][1]?-1:1);
+}
+function fmtChain(vin,v,px){
+  const seq=v.map(r=>`${r[1].slice(0,7)} <span class='mono'>${money(px(r))}</span>`).join(' → ');
+  const first=px(v[0]), last=px(v[v.length-1]);
+  const d=first?((last/first-1)*100):null;
+  const dd=d==null?'':` <b class='${d>=0?"up":"down"}'>(${d>=0?'+':''}${d.toFixed(0)}%)</b>`;
+  return `<div style='margin:4px 0'><span class='mono dim'>${vin.slice(-8)}</span> · ${seq}${dd}
+    · <a href='${v[v.length-1][9]}' target='_blank'>listing</a></div>`;
+}
+function chains(px){
+  const el=$('#chains'); const ch=chainRows(R,px);
+  el.innerHTML=ch.length?ch.slice(0,40).map(([vin,v])=>fmtChain(vin,v,px)).join(''):'no repeat sales in current filter';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const q=document.querySelector('#vinq');
+  if(q)q.addEventListener('input',()=>{
+    const s=q.value.trim().toUpperCase();
+    if(s.length<5){refresh();return;}
+    const hits=D.rows.filter(r=>r[10]&&r[10].toUpperCase().includes(s));
+    const px=r=>($('#f_basis').value==='allin')?allin(r[7],r[2]):r[2];
+    const byV={};
+    hits.forEach(r=>{(byV[r[10]]=byV[r[10]]||[]).push(r);});
+    $('#chains').innerHTML=Object.entries(byV).map(([vin,v])=>{
+      v.sort((a,b)=>a[1]<b[1]?-1:1);
+      return `<div style='margin:4px 0'><b class='mono'>${vin}</b> (${D.cars[v[0][0]]||v[0][0]})`+fmtChain('',v,px)+`</div>`;
+    }).join('')||'no VIN match in clean-comp pool';
+  });
+});
 function setOpts(id,vals){
   const el=$('#'+id), cur=el.value;
   el.innerHTML=`<option value=''>all</option>`+vals.map(v=>`<option>${v}</option>`).join('');
