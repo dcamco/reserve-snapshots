@@ -36,10 +36,24 @@ td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
 .fobout b{color:var(--hd)}
 button{background:#1f6feb;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
 button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--fg)}
-.back{font-size:13px}
+.jump{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(6px);display:flex;gap:4px;overflow-x:auto;padding:8px 0;margin:0 0 6px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:0 0 auto;font-size:12px;color:var(--fg);background:var(--panel);
+  border:1px solid var(--line2);border-radius:999px;padding:5px 12px;white-space:nowrap;text-decoration:none}
+.jump a.here{background:#1f6feb;border-color:#1f6feb;color:#fff}
+.filters .check{flex-direction:row;align-items:center;gap:6px;font-size:12px;color:var(--fg);
+  text-transform:none;letter-spacing:0;padding:8px 0}
+.filters .check input{min-width:0;width:16px;height:16px;accent-color:#1f6feb}
 @media(max-width:640px){ table{min-width:560px} }
 </style></head><body>
-<div class='back'><a href='./'>← Reserve board</a></div>
+<nav class='jump'>
+  <a href='./'>📊 Board</a>
+  <a class='here' href='comps.html'>🔎 Comps + FoB</a>
+  <a href='#chains-h'>🔁 VIN chains</a>
+  <a href='#fob-h'>🧮 FoB calc</a>
+</nav>
 <h1>Comp Browser</h1>
 <div class='dim' id='meta'>loading comps…</div>
 
@@ -52,7 +66,7 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
   <label>Year max<input id='f_ymax' type='number' placeholder='any'></label>
   <label>Miles max<input id='f_mi' type='number' placeholder='any'></label>
   <label>Source<select id='f_src'><option value=''>all</option></select></label>
-  <label>Basis<select id='f_basis'><option value='hammer'>hammer</option><option value='allin'>all-in (+premium)</option></select></label>
+  <label class='check'><input id='f_basis' type='checkbox'> all-in basis (+buyer premium)</label>
 </div>
 
 <div class='strip'>
@@ -73,12 +87,12 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 </tr></thead><tbody></tbody></table></div>
 <div class='dim' id='shown' style='margin-top:6px'></div>
 
-<h2>Repeat sales — same-VIN chains</h2>
+<h2 id='chains-h'>Repeat sales — same-VIN chains</h2>
 <div class='dim'>Every car in the current filter that has sold more than once — realized flips, holds, and round-trips.</div>
 <div style='margin:10px 0'><input id='vinq' placeholder='…or search any VIN (all models)' style='background:var(--panel);color:var(--hd);border:1px solid var(--line2);border-radius:8px;padding:8px 11px;font-size:13px;width:min(360px,100%)'></div>
 <div id='chains' class='dim' style='font-size:13px'>—</div>
 
-<h2>Free-or-Better calculator</h2>
+<h2 id='fob-h'>Free-or-Better calculator</h2>
 <div class='dim'>Does the car pay for its own ownership? FoB v2 — appreciation (conviction- and cycle-adjusted) vs carry, with liquidity + transaction friction over your horizon.</div>
 <div class='fob'>
   <label>Current value $<input id='c_val' type='number' value='85000'></label>
@@ -103,8 +117,8 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 <script>
 let D=null, I={}, R=[];
 const $=s=>document.querySelector(s), money=n=>n==null?'–':'$'+Math.round(n).toLocaleString();
-Promise.all([fetch('comps.json?v=1785875797').then(r=>r.json()),
-             fetch('intel.json?v=1785875797').then(r=>r.json()).catch(()=>({}))])
+Promise.all([fetch('comps.json?v=1785876051').then(r=>r.json()),
+             fetch('intel.json?v=1785876051').then(r=>r.json()).catch(()=>({}))])
   .then(([d,i])=>{D=d;I=i;init();});
 function premium(src,h){const p=D.premiums[src]||D.premium_default;let f=Math.max(h*p[0],p[1]);if(p[2])f=Math.min(f,p[2]);return f;}
 function allin(src,h){return h+premium(src,h);}
@@ -128,7 +142,7 @@ function refresh(){
   const tr=$('#f_tr').value, sv=$('#f_sv').value, src=$('#f_src').value;
   const win=$('#f_win').value, ymin=+$('#f_ymin').value||0, ymax=+$('#f_ymax').value||9999, mi=+$('#f_mi').value||1e9;
   const cutoff=win?new Date(Date.now()-win*864e5).toISOString().slice(0,10):'';
-  const basis=$('#f_basis').value;
+  const basis=$('#f_basis').checked?'allin':'hammer';
   R=sub.filter(r=>(!tr||r[5]===tr)&&(!sv||r[6]===sv)&&(!src||r[7]===src)
     &&(!cutoff||r[1]>=cutoff)&&(r[4]==null||(r[4]>=ymin&&r[4]<=ymax))&&(r[3]==null||r[3]<=mi));
   const px=r=>basis==='allin'?allin(r[7],r[2]):r[2];
@@ -183,7 +197,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const s=q.value.trim().toUpperCase();
     if(s.length<5){refresh();return;}
     const hits=D.rows.filter(r=>r[10]&&r[10].toUpperCase().includes(s));
-    const px=r=>($('#f_basis').value==='allin')?allin(r[7],r[2]):r[2];
+    const px=r=>$('#f_basis').checked?allin(r[7],r[2]):r[2];
     const byV={};
     hits.forEach(r=>{(byV[r[10]]=byV[r[10]]||[]).push(r);});
     $('#chains').innerHTML=Object.entries(byV).map(([vin,v])=>{
