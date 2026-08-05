@@ -117,8 +117,8 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 <script>
 let D=null, I={}, R=[];
 const $=s=>document.querySelector(s), money=n=>n==null?'–':'$'+Math.round(n).toLocaleString();
-Promise.all([fetch('comps.json?v=1785937807').then(r=>r.json()),
-             fetch('intel.json?v=1785937807').then(r=>r.json()).catch(()=>({}))])
+Promise.all([fetch('comps.json?v=1785941242').then(r=>r.json()),
+             fetch('intel.json?v=1785941242').then(r=>r.json()).catch(()=>({}))])
   .then(([d,i])=>{D=d;I=i;init();});
 function premium(src,h){const p=D.premiums[src]||D.premium_default;let f=Math.max(h*p[0],p[1]);if(p[2])f=Math.min(f,p[2]);return f;}
 function allin(src,h){return h+premium(src,h);}
@@ -255,4 +255,10 @@ function fob(){
     total ${H}-yr return after friction: <b class='${tr>=0?"up":"down"}'>${(tr*100).toFixed(1)}%</b>
     · breakeven ${brk?brk.toFixed(1)+' yrs':'—'} · FoB score <b>${score.toFixed(1)}/10</b>`;
 }
+</script>
+<script>document.addEventListener('DOMContentLoaded',()=>{});
+new MutationObserver(()=>{document.querySelectorAll('a[href^=http]').forEach(a=>{
+  if(a.host!==location.host){a.target='_blank';a.rel='noopener'}})})
+ .observe(document.body,{childList:true,subtree:true});
+document.querySelectorAll('a[href^=http]').forEach(a=>{if(a.host!==location.host){a.target='_blank';a.rel='noopener'}});
 </script></body></html>
