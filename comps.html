@@ -53,6 +53,11 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 .filters .check{flex-direction:row;align-items:center;gap:6px;font-size:12px;color:var(--fg);
   text-transform:none;letter-spacing:0;padding:8px 0}
 .filters .check input{min-width:0;width:16px;height:16px;accent-color:#1f6feb}
+.sharebar{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 12px;align-items:center}
+.sharebar button{background:var(--panel);color:var(--hd);border:1px solid var(--line2);
+  border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+.sharebar button:hover{background:#1c2330;border-color:#1f6feb}
+#sharemsg{font-size:12px}
 @media(max-width:640px){ table{min-width:560px} }
 </style></head><body>
 <div class='navwrap'>
@@ -85,6 +90,13 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
   <div class='stat'><b id='s_p25'>–</b><span>p25</span></div>
   <div class='stat'><b id='s_p75'>–</b><span>p75</span></div>
   <div class='stat'><b id='s_trend'>–</b><span>12m vs prior</span></div>
+</div>
+
+<div class='sharebar'>
+  <button onclick='copyComps()'>📋 Copy comp list</button>
+  <button onclick='copyLink()'>🔗 Copy link to this view</button>
+  <button id='sharebtn' onclick='shareNative()' style='display:none'>📤 Share…</button>
+  <span id='sharemsg' class='dim'></span>
 </div>
 
 <div class='fobout' id='intel' style='display:none;margin:0 0 10px'></div>
@@ -127,8 +139,8 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 <script>
 let D=null, I={}, R=[];
 const $=s=>document.querySelector(s), money=n=>n==null?'–':'$'+Math.round(n).toLocaleString();
-Promise.all([fetch('comps.json?v=1786213322').then(r=>r.json()),
-             fetch('intel.json?v=1786213322').then(r=>r.json()).catch(()=>({}))])
+Promise.all([fetch('comps.json?v=1786214328').then(r=>r.json()),
+             fetch('intel.json?v=1786214328').then(r=>r.json()).catch(()=>({}))])
   .then(([d,i])=>{D=d;I=i;init();});
 function premium(src,h){const p=D.premiums[src]||D.premium_default;let f=Math.max(h*p[0],p[1]);if(p[2])f=Math.min(f,p[2]);return f;}
 function allin(src,h){return h+premium(src,h);}
@@ -137,9 +149,24 @@ function init(){
   $('#f_car').innerHTML=cars.map(([id,n])=>`<option value='${id}'>${n}</option>`).join('');
   const params=new URLSearchParams(location.search);
   if(params.get('car')&&D.cars[params.get('car')]) $('#f_car').value=params.get('car');
+  ['f_win','f_ymin','f_ymax','f_mi'].forEach(id=>{const v=params.get(id.slice(2));if(v!==null)$('#'+id).value=v;});
+  if(params.get('basis')==='1')$('#f_basis').checked=true;
   ['f_car','f_tr','f_sv','f_win','f_ymin','f_ymax','f_mi','f_src','f_basis'].forEach(id=>$('#'+id).addEventListener('change',refresh));
   $('#meta').textContent=D.rows.length.toLocaleString()+' clean sold comps · '+cars.length+' models';
   refresh();
+  // dependent selects (tr/sv/src) only exist after the first refresh builds their options
+  let dep=false;
+  ['tr','sv','src'].forEach(k=>{const v=params.get(k);if(v){$('#f_'+k).value=v;dep=true;}});
+  if(dep)refresh();
+  if(navigator.share)$('#sharebtn').style.display='';
+}
+function syncURL(){
+  const p=new URLSearchParams();
+  p.set('car',$('#f_car').value);
+  [['tr','f_tr'],['sv','f_sv'],['src','f_src'],['win','f_win'],['ymin','f_ymin'],['ymax','f_ymax'],['mi','f_mi']]
+    .forEach(([k,id])=>{const v=$('#'+id).value;if(v)p.set(k,v);});
+  if($('#f_basis').checked)p.set('basis','1');
+  history.replaceState(null,'','?'+p.toString());
 }
 function refresh(){
   const car=$('#f_car').value;
@@ -165,8 +192,31 @@ function refresh(){
   const m1=pct(base.filter(r=>r[1]>=y1).map(px).sort((a,b)=>a-b),.5), m0=pct(base.filter(r=>r[1]>=y2&&r[1]<y1).map(px).sort((a,b)=>a-b),.5);
   const t=(m1&&m0)?((m1/m0-1)*100):null;
   $('#s_trend').innerHTML=t==null?'–':`<span class='${t>=0?"up":"down"}'>${t>=0?'+':''}${t.toFixed(1)}%</span>`;
-  chart(px); table(px); intel(car); chains(px);
+  chart(px); table(px); intel(car); chains(px); syncURL();
 }
+const SRC_SHORT={bringatrailer:'BaT',carsandbids:'C&B',dupont:'duPont',somo:'SOMO',rmsothebys:'RM'};
+function compsText(){
+  const basis=$('#f_basis').checked?'allin':'hammer';
+  const px=r=>basis==='allin'?allin(r[7],r[2]):r[2];
+  const bits=[D.cars[$('#f_car').value]];
+  if($('#f_tr').value)bits.push($('#f_tr').value);
+  if($('#f_sv').value)bits.push($('#f_sv').value);
+  if($('#f_ymin').value||$('#f_ymax').value)bits.push(($('#f_ymin').value||'…')+'-'+($('#f_ymax').value||'…'));
+  if($('#f_mi').value)bits.push('≤'+(+$('#f_mi').value).toLocaleString()+' mi');
+  bits.push({'365':'last 12mo','730':'last 24mo','':'all time'}[$('#f_win').value]);
+  if(basis==='allin')bits.push('all-in w/premium');
+  const lines=[bits.filter(Boolean).join(' · '),
+    `${R.length} sales · median ${$('#s_med').textContent} (p25 ${$('#s_p25').textContent} / p75 ${$('#s_p75').textContent}) · 12m trend ${$('#s_trend').textContent.trim()}`,''];
+  R.slice(0,25).forEach(r=>lines.push(
+    `• ${money(px(r))} — ${(r[8]||'').replace(/&amp;/g,'&')} (${r[1]}, ${SRC_SHORT[r[7]]||r[7]})`));
+  if(R.length>25)lines.push(`… +${R.length-25} more at the link`);
+  lines.push('',location.href);
+  return lines.join('\n');
+}
+function _flash(m){$('#sharemsg').textContent=m;setTimeout(()=>$('#sharemsg').textContent='',2500);}
+function copyComps(){navigator.clipboard.writeText(compsText()).then(()=>_flash('comp list copied — paste anywhere'),()=>_flash('copy failed'));}
+function copyLink(){navigator.clipboard.writeText(location.href).then(()=>_flash('link copied'),()=>_flash('copy failed'));}
+function shareNative(){navigator.share({title:'Comps — '+D.cars[$('#f_car').value],text:compsText()}).catch(()=>{});}
 function intel(car){
   const it=I[car], el=$('#intel');
   if(!it||!it.available){el.style.display='none';return;}
