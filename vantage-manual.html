@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V8 Vantage Manual Market — August 2026</title>
+<style>
+:root { color-scheme: light;
+  --surface:#fcfcfb; --card:#f4f4f1; --ink:#0b0b0b; --ink2:#52514e; --ink3:#8a8880;
+  --s1:#2a78d6; --s2:#eb6834; --line:#e3e2dd; --good:#008300; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark;
+  --surface:#1a1a19; --card:#242422; --ink:#ffffff; --ink2:#c3c2b7; --ink3:#8a8880;
+  --s1:#3987e5; --s2:#d95926; --line:#3a3936; --good:#4caf50; } }
+:root[data-theme="dark"] { color-scheme: dark;
+  --surface:#1a1a19; --card:#242422; --ink:#ffffff; --ink2:#c3c2b7; --ink3:#8a8880;
+  --s1:#3987e5; --s2:#d95926; --line:#3a3936; --good:#4caf50; }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--surface); color:var(--ink); font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:0 16px 64px }
+main { max-width:780px; margin:0 auto }
+header { padding:44px 0 8px }
+h1 { font-size:1.7rem; line-height:1.2 } 
+.sub { color:var(--ink2); margin-top:6px }
+.verdict { display:inline-block; margin-top:14px; padding:6px 14px; border-radius:999px; background:var(--card); color:var(--good); font-weight:600; border:1px solid var(--line) }
+section { margin-top:40px }
+h2 { font-size:1.15rem; margin-bottom:4px }
+.note { color:var(--ink2); font-size:.92rem; margin-bottom:14px }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-top:18px }
+.tile { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px }
+.tile b { display:block; font-size:1.45rem; letter-spacing:-.02em }
+.tile span { color:var(--ink2); font-size:.85rem }
+figure { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 14px 10px; overflow-x:auto }
+svg { width:100%; height:auto; display:block }
+.grid { stroke:var(--line); stroke-width:1 }
+.tick { fill:var(--ink3); font-size:12px }
+.dlab { font-size:13px; font-weight:600 }
+.blab { fill:var(--ink2); font-size:12.5px }
+.bval { fill:var(--ink); font-size:12.5px; font-weight:600 }
+ul { padding-left:20px; display:grid; gap:8px }
+li b { color:var(--ink) }
+li { color:var(--ink2) }
+.band { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-top:12px }
+.band b.hd { display:block; margin-bottom:6px }
+table { width:100%; border-collapse:collapse; font-size:.92rem }
+.twrap { overflow-x:auto }
+th,td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line) }
+th { color:var(--ink3); font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em }
+td.r,th.r { text-align:right }
+footer { margin-top:48px; color:var(--ink3); font-size:.82rem; line-height:1.5 }
+</style></head><body><main>
+
+<header>
+<h1>The Analog Aston: V8 Vantage Manual Market</h1>
+<div class="sub">Gen-1 (2006–2017) 6-speed cars · BaT results + 807 auction comments analyzed · August 13, 2026</div>
+<div class="verdict">Verdict: the bottom was 2025 — recovery underway, led by late cars</div>
+</header>
+
+<section>
+<div class="tiles">
+<div class="tile"><b>$46.8k</b><span>2025 trough — average manual sold price</span></div>
+<div class="tile"><b>$54.8k</b><span>2026 average to date (late-car mix helps)</span></div>
+<div class="tile"><b>+60%</b><span>worst-print floor: $19.5k ('25) → $31k ('26)</span></div>
+<div class="tile"><b>~27%</b><span>manual premium over Sportshift, and widening</span></div>
+</div>
+</section>
+
+<section>
+<h2>Manual vs Sportshift — average sold price by year</h2>
+<div class="note">BaT results, V8 cars. The lines crossed in 2022 and have diverged since: manuals recovering, single-clutch Sportshift cars still sinking. Small Sportshift sample sizes (5–14/yr) make that line noisier.</div>
+<figure><svg viewBox="0 0 720 300" role="img" aria-label="Average sold price by year, manual vs Sportshift">
+<line x1="60" x2="630" y1="249.0" y2="249.0" class="grid"/><text x="52" y="253.0" class="tick" text-anchor="end">$30k</text><line x1="60" x2="630" y1="174.0" y2="174.0" class="grid"/><text x="52" y="178.0" class="tick" text-anchor="end">$40k</text><line x1="60" x2="630" y1="99.0" y2="99.0" class="grid"/><text x="52" y="103.0" class="tick" text-anchor="end">$50k</text><line x1="60" x2="630" y1="24.0" y2="24.0" class="grid"/><text x="52" y="28.0" class="tick" text-anchor="end">$60k</text><text x="60.0" y="290" class="tick" text-anchor="middle">2021</text><text x="174.0" y="290" class="tick" text-anchor="middle">2022</text><text x="288.0" y="290" class="tick" text-anchor="middle">2023</text><text x="402.0" y="290" class="tick" text-anchor="middle">2024</text><text x="516.0" y="290" class="tick" text-anchor="middle">2025</text><text x="630.0" y="290" class="tick" text-anchor="middle">2026</text>
+<path d="M60.0,46.5 L174.0,68.1 L288.0,154.9 L402.0,128.2 L516.0,102.0 L630.0,149.6" fill="none" stroke="var(--s2)" stroke-width="2"/>
+<path d="M60.0,104.6 L174.0,57.6 L288.0,100.9 L402.0,107.0 L516.0,123.1 L630.0,62.8" fill="none" stroke="var(--s1)" stroke-width="2.5"/>
+<circle cx="60.0" cy="46.5" r="4.5" fill="var(--s2)" stroke="var(--surface)" stroke-width="2"><title>Sportshift 2021: $57,002</title></circle><circle cx="174.0" cy="68.1" r="4.5" fill="var(--s2)" stroke="var(--surface)" stroke-width="2"><title>Sportshift 2022: $54,114</title></circle><circle cx="288.0" cy="154.9" r="4.5" fill="var(--s2)" stroke="var(--surface)" stroke-width="2"><title>Sportshift 2023: $42,550</title></circle><circle cx="402.0" cy="128.2" r="4.5" fill="var(--s2)" stroke="var(--surface)" stroke-width="2"><title>Sportshift 2024: $46,108</title></circle><circle cx="516.0" cy="102.0" r="4.5" fill="var(--s2)" stroke="var(--surface)" stroke-width="2"><title>Sportshift 2025: $49,604</title></circle><circle cx="630.0" cy="149.6" r="4.5" fill="var(--s2)" stroke="var(--surface)" stroke-width="2"><title>Sportshift 2026: $43,258</title></circle><circle cx="60.0" cy="104.6" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"><title>Manual 2021: $49,256</title></circle><circle cx="174.0" cy="57.6" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"><title>Manual 2022: $55,524</title></circle><circle cx="288.0" cy="100.9" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"><title>Manual 2023: $49,743</title></circle><circle cx="402.0" cy="107.0" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"><title>Manual 2024: $48,932</title></circle><circle cx="516.0" cy="123.1" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"><title>Manual 2025: $46,787</title></circle><circle cx="630.0" cy="62.8" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"><title>Manual 2026: $54,822</title></circle>
+<text x="638" y="66.8" class="dlab" fill="var(--s1)">Manual</text>
+<text x="638" y="153.6" class="dlab" fill="var(--s2)">Sportshift</text>
+</svg></figure>
+</section>
+
+<section>
+<h2>The last ten manual results</h2>
+<div class="note">Blue = ordinary cars, orange = the late-car/GT tier that has already detached upward. The spread between tiers is the story: $31k still buys a driver; $70–80k is now GT money.</div>
+<figure><svg viewBox="0 0 690 340" role="img" aria-label="Last ten BaT manual Vantage results"><g transform="translate(0,0)"><text x="0" y="16" class="blab">Aug 11 · 2010 Coupe · 1-owner · 57k mi</text><rect x="265" y="4" width="214" height="18" rx="4" fill="var(--s1)"><title>2010 Coupe · 1-owner: $52,000</title></rect><text x="487" y="18" class="bval">$52,000</text></g><g transform="translate(0,34)"><text x="0" y="16" class="blab">Aug 10 · 2007 Coupe · 23k mi</text><rect x="265" y="4" width="194" height="18" rx="4" fill="var(--s1)"><title>2007 Coupe: $47,000</title></rect><text x="467" y="18" class="bval">$47,000</text></g><g transform="translate(0,68)"><text x="0" y="16" class="blab">Aug 6 · 2007 Coupe · 23k mi</text><rect x="265" y="4" width="220" height="18" rx="4" fill="var(--s1)"><title>2007 Coupe: $53,500</title></rect><text x="493" y="18" class="bval">$53,500</text></g><g transform="translate(0,102)"><text x="0" y="16" class="blab">Jul 29 · 2010 Coupe 4.7 · 19k mi</text><rect x="265" y="4" width="185" height="18" rx="4" fill="var(--s1)"><title>2010 Coupe 4.7: $45,000</title></rect><text x="458" y="18" class="bval">$45,000</text></g><g transform="translate(0,136)"><text x="0" y="16" class="blab">Jul 27 · 2007 Coupe · 31k mi</text><rect x="265" y="4" width="196" height="18" rx="4" fill="var(--s1)"><title>2007 Coupe: $47,500</title></rect><text x="469" y="18" class="bval">$47,500</text></g><g transform="translate(0,170)"><text x="0" y="16" class="blab">Jun 29 · 2015 GT Coupe · 13k mi</text><rect x="265" y="4" width="331" height="18" rx="4" fill="var(--s2)"><title>2015 GT Coupe: $80,500</title></rect><text x="604" y="18" class="bval">$80,500</text></g><g transform="translate(0,204)"><text x="0" y="16" class="blab">Jun 23 · 2010 Coupe 4.7 · 32k mi</text><rect x="265" y="4" width="287" height="18" rx="4" fill="var(--s2)"><title>2010 Coupe 4.7: $69,777</title></rect><text x="560" y="18" class="bval">$69,777</text></g><g transform="translate(0,238)"><text x="0" y="16" class="blab">Jun 18 · 2009 Roadster · 58k mi</text><rect x="265" y="4" width="126" height="18" rx="4" fill="var(--s1)"><title>2009 Roadster: $30,500</title></rect><text x="399" y="18" class="bval">$30,500</text></g><g transform="translate(0,272)"><text x="0" y="16" class="blab">Jun 16 · 2015 GT Coupe · 39k mi</text><rect x="265" y="4" width="305" height="18" rx="4" fill="var(--s2)"><title>2015 GT Coupe: $74,000</title></rect><text x="578" y="18" class="bval">$74,000</text></g><g transform="translate(0,306)"><text x="0" y="16" class="blab">Jun 13 · 2008 Coupe · 45k mi</text><rect x="265" y="4" width="128" height="18" rx="4" fill="var(--s1)"><title>2008 Coupe: $31,000</title></rect><text x="401" y="18" class="bval">$31,000</text></g></svg></figure>
+</section>
+
+<section>
+<h2>What 807 comments reveal</h2>
+<div class="note">Every comment on the last ten BaT manual auctions, classified by topic.</div>
+<figure><svg viewBox="0 0 690 330" role="img" aria-label="Comment topics by frequency"><g transform="translate(0,0)"><text x="0" y="15" class="blab">Color & spec praise</text><rect x="230" y="3" width="410" height="16" rx="4" fill="var(--s1)"><title>Color & spec praise: 105 comments</title></rect><text x="648" y="16" class="bval">105</text></g><g transform="translate(0,30)"><text x="0" y="15" class="blab">Ownership stories</text><rect x="230" y="3" width="215" height="16" rx="4" fill="var(--s1)"><title>Ownership stories: 55 comments</title></rect><text x="453" y="16" class="bval">55</text></g><g transform="translate(0,60)"><text x="0" y="15" class="blab">Clutch questions</text><rect x="230" y="3" width="180" height="16" rx="4" fill="var(--s1)"><title>Clutch questions: 46 comments</title></rect><text x="418" y="16" class="bval">46</text></g><g transform="translate(0,90)"><text x="0" y="15" class="blab">Under-valued / market talk</text><rect x="230" y="3" width="109" height="16" rx="4" fill="var(--s1)"><title>Under-valued / market talk: 28 comments</title></rect><text x="347" y="16" class="bval">28</text></g><g transform="translate(0,120)"><text x="0" y="15" class="blab">GT & final-year premium</text><rect x="230" y="3" width="105" height="16" rx="4" fill="var(--s1)"><title>GT & final-year premium: 27 comments</title></rect><text x="343" y="16" class="bval">27</text></g><g transform="translate(0,150)"><text x="0" y="15" class="blab">Running costs</text><rect x="230" y="3" width="74" height="16" rx="4" fill="var(--s1)"><title>Running costs: 19 comments</title></rect><text x="312" y="16" class="bval">19</text></g><g transform="translate(0,180)"><text x="0" y="15" class="blab">vs 911 comparisons</text><rect x="230" y="3" width="59" height="16" rx="4" fill="var(--s1)"><title>vs 911 comparisons: 15 comments</title></rect><text x="297" y="16" class="bval">15</text></g><g transform="translate(0,210)"><text x="0" y="15" class="blab">Oil / engine health</text><rect x="230" y="3" width="47" height="16" rx="4" fill="var(--s1)"><title>Oil / engine health: 12 comments</title></rect><text x="285" y="16" class="bval">12</text></g><g transform="translate(0,240)"><text x="0" y="15" class="blab">4.3 vs 4.7</text><rect x="230" y="3" width="43" height="16" rx="4" fill="var(--s1)"><title>4.3 vs 4.7: 11 comments</title></rect><text x="281" y="16" class="bval">11</text></g><g transform="translate(0,270)"><text x="0" y="15" class="blab">Future-classic calls</text><rect x="230" y="3" width="35" height="16" rx="4" fill="var(--s1)"><title>Future-classic calls: 9 comments</title></rect><text x="273" y="16" class="bval">9</text></g><g transform="translate(0,300)"><text x="0" y="15" class="blab">Sportshift debate</text><rect x="230" y="3" width="23" height="16" rx="4" fill="var(--s1)"><title>Sportshift debate: 6 comments</title></rect><text x="261" y="16" class="bval">6</text></g></svg></figure>
+<ul style="margin-top:16px">
+<li><b>Color is the hidden price variable.</b> Spec praise was the #1 topic by a wide margin. The crowd goes audibly feral for any manual 4.7 that isn't black or silver — and the two strongest ordinary-car results of the summer were both color-story cars. In a market this cheap, spec scarcity is what separates a $47k result from a $60k+ one.</li>
+<li><b>The clutch is the PPI battleground.</b> Nearly every thread litigates clutch wear, and bidders forensically parse hedged seller language until it's retracted or proven. Twin-disc (4.7) vs single-disc (4.3) feel, replacement cost (~$3–4k), and "original or replaced?" are the standard gauntlet.</li>
+<li><b>Owners are evangelizing at the bottom.</b> Multiple current owners posted unprompted that the cars are badly under-valued — one directly comparing build quality favorably against a Ferrari 360 he'd just sold. Owner-cohort evangelism while prints rise is the classic early-re-rate signature.</li>
+<li><b>The extinction narrative has arrived.</b> Naturally aspirated, hydraulic steering, no hybrid assistance, a real gated-adjacent 6-speed, and a successor generation that dropped the manual — commenters now recite the future-classic case as settled fact.</li>
+<li><b>Known-issue literacy is high.</b> The 4.3's timing-cover weep is common knowledge (asked about specifically when PPIs mention leaks), as are aging tires on low-mile cars and stuck seat modules. Sellers who answer with documents get rewarded; hedgers get repriced.</li>
+<li><b>Lifestyle buyers are showing up.</b> Golf-bag capacity and shipping-to-Palm-Springs questions are appearing alongside the enthusiast interrogation — demand is broadening beyond the faithful, which is how thin bottoms become durable floors.</li>
+</ul>
+</section>
+
+<section>
+<h2>The fine-tuned read</h2>
+<div class="band"><b class="hd">Where the value is</b>
+A 2009–2016 <b>4.7 manual coupe in the $42–48k band</b> — ideally Sports Pack, a color with a story, and clutch documentation. The 4.7 fixed the 4.3's appetite, and the GT prints ($74–80.5k) show where the tier above already went. An ordinary 4.7 manual bought in the mid-$40s sits one rung below variants that have already re-rated.</div>
+<div class="band"><b class="hd">What to avoid paying up for</b>
+4.3 cars are honest fun but will remain the discount tier — buy them cheap ($35–42k) or not at all, and check the timing cover. Sportshift cars keep getting cheaper for a reason: no conversion pipeline exists to rescue them, and the market has decided. Roadsters trail coupes.</div>
+<div class="band"><b class="hd">Why the bottom looks real</b>
+Three independent signals agree: the yearly average turned (2025 trough), the worst-print floor jumped 60%, and the late/special tier detached upward first — the same sequence the 996 Turbo and McLaren 12C followed out of their floors. Terminal supply seals it: the manual gen-1 fleet only shrinks.</div>
+<div class="band"><b class="hd">The honest caveats</b>
+The 2026 average is flattered by GT-car mix — ordinary cars are up a real but modest 5–10%. Running costs are genuine (~$2–3k/yr done right, clutch as a consumable), sub-3:1 parts-availability depends on a shrinking specialist network, and this recovery is one hot summer old. It's a floor with evidence, not a rocket.</div>
+</section>
+
+<section>
+<h2>The ten results behind the charts</h2>
+<div class="twrap"><table>
+<tr><th>Date</th><th>Car</th><th class="r">Miles</th><th class="r">Result</th><th class="r">Comments</th></tr>
+<tr><td>Aug 11</td><td>2010 Coupe, original owner</td><td class="r">57k</td><td class="r">$52,000</td><td class="r">95</td></tr>
+<tr><td>Aug 10</td><td>2007 Coupe</td><td class="r">23k</td><td class="r">$47,000</td><td class="r">89</td></tr>
+<tr><td>Aug 6</td><td>2007 Coupe</td><td class="r">23k</td><td class="r">$53,500</td><td class="r">100</td></tr>
+<tr><td>Jul 29</td><td>2010 Coupe (4.7)</td><td class="r">19k</td><td class="r">$45,000</td><td class="r">69</td></tr>
+<tr><td>Jul 27</td><td>2007 Coupe</td><td class="r">31k</td><td class="r">$47,500</td><td class="r">67</td></tr>
+<tr><td>Jun 29</td><td>2015 GT Coupe</td><td class="r">13k</td><td class="r">$80,500</td><td class="r">130</td></tr>
+<tr><td>Jun 23</td><td>2010 Coupe (4.7)</td><td class="r">32k</td><td class="r">$69,777</td><td class="r">95</td></tr>
+<tr><td>Jun 18</td><td>2009 Roadster</td><td class="r">58k</td><td class="r">$30,500</td><td class="r">37</td></tr>
+<tr><td>Jun 16</td><td>2015 GT Coupe</td><td class="r">39k</td><td class="r">$74,000</td><td class="r">83</td></tr>
+<tr><td>Jun 13</td><td>2008 Coupe</td><td class="r">45k</td><td class="r">$31,000</td><td class="r">42</td></tr>
+</table></div>
+</section>
+
+<footer>
+Sources: Bring a Trailer public auction results and comment threads (last ten gen-1 manual V8 Vantage auctions, June–August 2026, 807 comments), yearly aggregates from tracked BaT results 2021–2026. Comment insights are paraphrased. Personal market analysis for discussion — not investment or purchase advice. Generated August 13, 2026.
+</footer>
+
+</main></body></html>
