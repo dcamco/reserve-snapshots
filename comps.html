@@ -96,6 +96,7 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
   <button onclick='copyComps()'>📋 Copy comp list</button>
   <button onclick='copyLink()'>🔗 Copy link to this view</button>
   <button id='sharebtn' onclick='shareNative()' style='display:none'>📤 Share…</button>
+  <button id='savebtn' onclick='saveSearch()'>★ Save search</button>
   <span id='sharemsg' class='dim'></span>
 </div>
 
@@ -139,8 +140,8 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 <script>
 let D=null, I={}, R=[];
 const $=s=>document.querySelector(s), money=n=>n==null?'–':'$'+Math.round(n).toLocaleString();
-Promise.all([fetch('comps.json?v=1787851672').then(r=>r.json()),
-             fetch('intel.json?v=1787851672').then(r=>r.json()).catch(()=>({}))])
+Promise.all([fetch('comps.json?v=1787851737').then(r=>r.json()),
+             fetch('intel.json?v=1787851737').then(r=>r.json()).catch(()=>({}))])
   .then(([d,i])=>{D=d;I=i;init();});
 function premium(src,h){const p=D.premiums[src]||D.premium_default;let f=Math.max(h*p[0],p[1]);if(p[2])f=Math.min(f,p[2]);return f;}
 function allin(src,h){return h+premium(src,h);}
@@ -159,6 +160,20 @@ function init(){
   ['tr','sv','src'].forEach(k=>{const v=params.get(k);if(v){$('#f_'+k).value=v;dep=true;}});
   if(dep)refresh();
   if(navigator.share)$('#sharebtn').style.display='';
+}
+function saveSearch(){
+  // device-local saved search (localStorage) — pairs with MY WATCH on the home page
+  syncURL();
+  var qs=location.search.replace(/^\?/,'');
+  if(!qs){alert('Set some filters first');return}
+  var label=prompt('Name this search:', $('#f_car').value||'search');
+  if(!label)return;
+  var K='rsv_searches',s=[];
+  try{s=JSON.parse(localStorage.getItem(K))||[]}catch(e){}
+  s=s.filter(function(x){return x.label!==label});
+  s.push({label:label,qs:qs});
+  localStorage.setItem(K,JSON.stringify(s.slice(-12)));
+  document.getElementById('savebtn').textContent='★ Saved';
 }
 function syncURL(){
   const p=new URLSearchParams();
