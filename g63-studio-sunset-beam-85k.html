@@ -124,6 +124,16 @@
     font-size: 12px;
     color: var(--muted);
   }
+
+  .build { width: 100%; margin: 8px 0 20px; }
+  .build td:last-child, .build th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .plus { color: #1f3d2a; }
+  .minus { color: #7a2e1a; }
+  .zero { color: var(--muted); }
+  .sum { font-weight: 600; background: #efe8da; }
+  .olist { margin: 8px 0 20px; padding-left: 1.2em; }
+  .olist li { margin: 0 0 10px; }
+  .olist a { color: var(--copper-deep); }
   @media (max-width: 700px) {
     .nums { grid-template-columns: 1fr 1fr; }
     h1 { font-size: 26px; }
@@ -157,6 +167,34 @@
       Same year, same miles: 2016 G63, Designo Mystic White, 85k, sold $50,500 on BaT 16 Sep 2025. Designo paint, not Studio. Worn driver’s seat noted.
       <div style="margin-top:8px;"><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/">bringatrailer.com/listing/2016-mercedes-amg-g63-29</a></div>
     </div>
+
+    
+    <h2>Comps</h2>
+    <p>What he asked for. Hammers, then the plus/minus off the analog.</p>
+    <ol class="olist">
+      <li><strong>$50,500</strong> — 2016 G63, Designo Mystic White, 85k, BaT 16 Sep 2025. Same year, same miles. Designo paint, not Studio. Worn seat. This is the analog. <a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/">listing</a></li>
+      <li><strong>$54,500</strong> — 2016 Designo Mystic White, 71k, BaT 31 Oct 2025. Same paint family, 14k fewer miles. <a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-30/">listing</a></li>
+      <li><strong>$57,000</strong> — 2017 Magno Sintered Bronze, 86k, BaT 28 Jul 2025. Rear-end in 2018, worn roof. Floor check, not analog. Magno ≠ Studio. <a href="https://bringatrailer.com/listing/2017-mercedes-amg-g63-21/">listing</a></li>
+      <li><strong>$60,000</strong> — 2017 Tectite Gray Exclusive, 84k, BaT 27 Nov 2024. Carfax multi-panel damage. Same: floor through a hit. <a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-15/">listing</a></li>
+      <li><strong>RNM $47,500</strong> — 2017 Obsidian Black, 81k, BaT 26 Jul 2026. Ugly-records floor. <a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-24/">listing</a></li>
+      <li><strong>Do not use:</strong> 12k Galactic Beam Studio $89,300; 36k Alien Green Studio $89,500; 22k Sunset Beam RNM $94,653 (not a sold). Those are trophy-mile Studio cards.</li>
+    </ol>
+
+    <h2>Adjustments off the analog</h2>
+    <p>Start at the 85k Mystic White. Add/subtract. Miles and year already match.</p>
+    <table class="build">
+      <thead><tr><th>Line</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Analog — 2016 85k Designo Mystic White</td><td>$50,500</td></tr>
+        <tr><td>Miles</td><td class="zero">$0</td></tr>
+        <tr><td>Year / chassis (2016 W463 G63)</td><td class="zero">$0</td></tr>
+        <tr><td>Studio Sunset Beam vs designo paint <span class="tag thin">unproven at 85k</span></td><td class="plus">+$7,500</td></tr>
+        <tr><td>Condition (assumed clean; no rust, no Carfax)</td><td class="zero">$0</td></tr>
+        <tr class="sum"><td>Fair / expected hammer</td><td>$58,000</td></tr>
+        <tr><td>Walk — fresher 64k Desert Sand sold $68,500, don’t pay it at 85k</td><td>$68,000</td></tr>
+      </tbody>
+    </table>
+    <p>The +$7,500 is a judgment bump so a clean Studio does not print under the wrecked 2017 Magno at $57k. It is not tape proving the $20k package still pays at 85k. There are zero Studio solds above 36k miles. If fluids/seat/body are lazy, take the bump back off and sit on $50.5–54k. If body rust at the spare-tire door or windshield, walk or $45k.</p>
 
     <h2>What Sunset Beam actually is</h2>
     <p>Factory name is <em>AMG Performance Studio Package</em>, not a $4–6.5k designo metallic and not Magno. 2016 US brochure colors: Alien Green, AMG Solarbeam, Galacticbeam, Sunsetbeam (paint code 2173). Gloss-black roof, flares, mirrors, bumpers, spare surround. designo Black Exclusive Nappa, stitch keyed to the paint. Carbon interior. Mutually exclusive with the designo Exclusive Leather package.</p>
