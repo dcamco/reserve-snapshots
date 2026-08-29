@@ -13,7 +13,6 @@
     --card: #fffcf6;
     --copper: #b56a2b;
     --copper-deep: #8a4a18;
-    --good: #1f3d2a;
     --warn: #8a5a12;
   }
   * { box-sizing: border-box; }
@@ -24,7 +23,7 @@
     background: var(--paper);
     line-height: 1.45;
   }
-  .wrap { max-width: 820px; margin: 0 auto; padding: 48px 28px 80px; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 44px 24px 72px; }
   .kicker {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 11px;
@@ -34,46 +33,47 @@
     font-weight: 600;
   }
   h1 {
-    font-size: 34px;
+    font-size: 32px;
     line-height: 1.12;
     font-weight: 600;
     margin: 10px 0 8px;
     letter-spacing: -0.02em;
   }
-  .dek { color: var(--muted); font-size: 18px; margin: 0 0 28px; }
+  .dek { color: var(--muted); font-size: 17px; margin: 0 0 20px; }
   .rule {
     height: 4px;
     width: 72px;
     background: linear-gradient(90deg, #c9843a, #6e3a12);
-    margin: 0 0 32px;
+    margin: 0 0 24px;
     border-radius: 2px;
   }
   h2 {
-    font-size: 20px;
-    margin: 40px 0 12px;
+    font-size: 19px;
+    margin: 36px 0 10px;
     letter-spacing: -0.01em;
   }
-  p { margin: 0 0 14px; }
-  .lede { font-size: 17.5px; }
-  .callout {
+  p { margin: 0 0 12px; }
+  a { color: var(--copper-deep); }
+  .take {
     background: var(--card);
     border: 1px solid var(--line);
     border-left: 4px solid var(--copper);
-    padding: 18px 20px;
-    margin: 22px 0 28px;
+    padding: 16px 18px;
+    margin: 0 0 22px;
+    font-size: 18px;
   }
-  .callout strong { display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--copper-deep); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin-bottom: 6px; }
   .nums {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin: 22px 0 8px;
+    margin: 0 0 8px;
   }
   .num {
     background: var(--card);
     border: 1px solid var(--line);
     padding: 14px 12px 12px;
   }
+  .num.hit { border-color: #d7b48a; }
   .num span {
     display: block;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -82,12 +82,18 @@
     text-transform: uppercase;
     color: var(--muted);
   }
-  .num b { display: block; font-size: 22px; margin-top: 4px; font-weight: 600; }
+  .num b { display: block; font-size: 26px; margin-top: 4px; font-weight: 600; letter-spacing: -0.02em; }
+  .note {
+    color: var(--muted);
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0 0 28px;
+  }
   table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
-    margin: 8px 0 20px;
+    margin: 8px 0 8px;
     background: var(--card);
   }
   th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -102,44 +108,53 @@
   }
   td a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid #d7b48a; }
   td a:hover { border-bottom-color: var(--copper-deep); }
-  .money { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .money { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; }
+  .sec td {
+    background: #efe8da;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding-top: 10px;
+  }
+  tr.here td { background: #f4e6d4; }
   .tag {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 10px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 2px 6px;
-    border: 1px solid var(--line);
-    color: var(--muted);
+    padding: 1px 6px;
+    border: 1px solid #e4c48a;
+    color: var(--warn);
     white-space: nowrap;
   }
-  .tag.thin { color: var(--warn); border-color: #e4c48a; }
-  .tag.studio { color: var(--copper-deep); border-color: #d7b48a; }
-  ul { padding-left: 1.15em; margin: 0 0 16px; }
+  .build { width: 100%; margin: 8px 0 12px; }
+  .build td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .plus { color: #1f3d2a; }
+  .sum { font-weight: 600; background: #efe8da; }
+  .chart { background: var(--card); border: 1px solid var(--line); padding: 8px 8px 4px; margin: 8px 0 8px; }
+  .chart a { text-decoration: none; }
+  .cap {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 0 18px;
+  }
+  ul { padding-left: 1.15em; margin: 0 0 14px; }
   li { margin: 0 0 6px; }
   .foot {
-    margin-top: 48px;
-    padding-top: 16px;
+    margin-top: 40px;
+    padding-top: 14px;
     border-top: 1px solid var(--line);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 12px;
     color: var(--muted);
   }
-  .build { width: 100%; margin: 8px 0 20px; }
-  .build td:last-child, .build th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
-  .plus { color: #1f3d2a; }
-  .minus { color: #7a2e1a; }
-  .zero { color: var(--muted); }
-  .sum { font-weight: 600; background: #efe8da; }
-  .olist { margin: 8px 0 20px; padding-left: 1.2em; }
-  .olist li { margin: 0 0 10px; }
-  .olist a { color: var(--copper-deep); }
-  .chart { background: var(--card); border: 1px solid var(--line); padding: 8px 8px 4px; margin: 8px 0 20px; }
-  .chart a { text-decoration: none; }
-  .note { color: var(--muted); font-size: 14px; }
   @media (max-width: 700px) {
-    .nums { grid-template-columns: 1fr 1fr; }
+    .nums { grid-template-columns: 1fr; }
     h1 { font-size: 26px; }
+    .num b { font-size: 22px; }
   }
   @media print {
     body { background: #fff; }
@@ -151,182 +166,104 @@
 <body>
   <div class="wrap">
     <div class="kicker">Market note · 29 August 2026</div>
-    <h1>2016 Mercedes-AMG G63<br>Studio Sunset Beam at driver miles</h1>
-    <p class="dek">Last-old-body W463. AMG Performance Studio package. ~85,000 miles. How the tape actually splits, and what that car should transact at.</p>
+    <h1>2016 Mercedes-AMG G63<br>Studio Sunset Beam, ~85k miles</h1>
+    <p class="dek">Last-old-body W463. Factory Studio package. Driver miles, not a trophy.</p>
     <div class="rule"></div>
 
-    <p class="lede">This is not a trophy G. Under ~30–40k miles, Studio crazy-colors still print like collector trucks. At 85k they are high-mile solid-axle G63s that happen to have a $20k factory package. The load-bearing chop is miles, then chassis, then spec. Color is real. It is not $89,000 real.</p>
+    <div class="take">Transact around <strong>$60,900</strong>. Analog is the same-year, same-miles Mystic White at <strong>$53,025</strong>. Walk at <strong>$71,400</strong>. Color is real. It is not $94,000 real.</div>
 
     <div class="nums">
-      <div class="num"><span>Analog hammer</span><b>$50,500</b></div>
-      <div class="num"><span>Fair hammer</span><b>$58,000</b></div>
-      <div class="num"><span>Fair + BaT 5%</span><b>$60,900</b></div>
-      <div class="num"><span>Walk hammer</span><b>$68,000</b></div>
+      <div class="num"><span>Analog</span><b>$53,025</b></div>
+      <div class="num hit"><span>Transact</span><b>$60,900</b></div>
+      <div class="num"><span>Walk</span><b>$71,400</b></div>
     </div>
-    <p class="note">Every dollar here is hammer, or hammer plus that house’s buyer’s premium. BaT is 5% ($58,000 → $60,900). Walk with 5% is $71,400. Private transact is the $58,000 hammer. No transport. No title tax.</p>
+    <p class="note">Every price on this page is hammer plus that house’s buyer’s premium (BaT 5%, Cars &amp; Bids 4.5% on the 2024 Magno, Mecum 10%, Hagerty 7%). Barrett-Jackson is the published sold figure. No transport. No title tax.</p>
 
-    <div class="callout">
-      <strong>The analog</strong>
-      Same year, same miles: 2016 G63, Designo Mystic White, 85k, sold $50,500 on BaT 16 Sep 2025. Designo paint, not Studio. Worn driver’s seat noted.
-      <div style="margin-top:8px;"><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/">bringatrailer.com/listing/2016-mercedes-amg-g63-29</a></div>
-    </div>
-
-    <h2>Comps</h2>
-    <p>Hammers first. Then the plus/minus off the analog. Off-BaT solds sit in their own table below.</p>
-    <ol class="olist">
-      <li><strong>$50,500</strong> — 2016 G63, Designo Mystic White, 85k, BaT 16 Sep 2025. Same year, same miles. Designo paint, not Studio. Worn seat. This is the analog. <a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/">listing</a></li>
-      <li><strong>$53,500</strong> — 2016 Designo Magno Platinum, 82k, Cars &amp; Bids 29 Nov 2024. Clean Magno, similar miles. Hammer; +4.5% is $55,907. <a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg">listing</a></li>
-      <li><strong>$54,500</strong> — 2016 Designo Mystic White, 71k, BaT 31 Oct 2025. Same paint family, 14k fewer miles. <a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-30/">listing</a></li>
-      <li><strong>$57,000</strong> — 2017 Magno Sintered Bronze, 86k, BaT 28 Jul 2025. Rear-end in 2018, worn roof. Floor check, not analog. Magno ≠ Studio. <a href="https://bringatrailer.com/listing/2017-mercedes-amg-g63-21/">listing</a></li>
-      <li><strong>$60,000</strong> — 2017 Tectite Gray Exclusive, 84k, BaT 27 Nov 2024. Carfax multi-panel damage. Same: floor through a hit. <a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-15/">listing</a></li>
-      <li><strong>$69,300</strong> — 2016 Jet Black Exclusive, 62,301 mi, Barrett-Jackson Palm Beach 24 Apr 2025. Hagerty VT, house +fees (BJ login-walls hammer). Fresher miles, different house. Ceiling context, not the analog. <a href="https://www.barrett-jackson.com/palm-beach-2025/docket/vehicle/2016-mercedes-benz-g63-amg-287985">lot</a></li>
-      <li><strong>RNM $47,500</strong> — 2017 Obsidian Black, 81k, BaT 26 Jul 2026. Ugly-records floor. <a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-24/">listing</a></li>
-      <li><strong>Do not use:</strong> 12k Galactic Beam Studio <a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-15/">$89,300</a>; 36k Alien Green Studio <a href="https://bringatrailer.com/listing/2018-mercedes-amg-g63-21/">$89,500</a>; 22k Sunset Beam <a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-10/">RNM $94,653</a>; Mecum Kissimmee 2023 Alien Green Studio with a 2022-style kit <a href="https://www.mecum.com/lots/536792/2016-mercedes-benz-g63-amg/">$99,000</a> hammer+10%. Trophy-mile / modified Studio cards.</li>
-    </ol>
-
-    <h2>Adjustments off the analog</h2>
-    <p>Start at the 85k Mystic White. Add/subtract. Miles and year already match.</p>
+    <h2>How $60,900 is built</h2>
+    <p>Start at the analog. Miles and year already match. The only add is Studio vs designo paint, and that add is a judgment, not tape.</p>
     <table class="build">
-      <thead><tr><th>Line</th><th></th></tr></thead>
       <tbody>
-        <tr><td>Analog — 2016 85k Designo Mystic White</td><td>$50,500</td></tr>
-        <tr><td>Miles</td><td class="zero">$0</td></tr>
-        <tr><td>Year / chassis (2016 W463 G63)</td><td class="zero">$0</td></tr>
-        <tr><td>Studio Sunset Beam vs designo paint <span class="tag thin">unproven at 85k</span></td><td class="plus">+$7,500</td></tr>
-        <tr><td>Condition (assumed clean; no rust, no Carfax)</td><td class="zero">$0</td></tr>
-        <tr class="sum"><td>Fair / expected hammer</td><td>$58,000</td></tr>
-        <tr><td>Walk — fresher 64k Desert Sand sold <a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-22/">$68,500</a>, don’t pay it at 85k</td><td>$68,000</td></tr>
+        <tr><td>Analog — 2016 Designo Mystic White, 85k, <a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/">BaT 16 Sep 2025</a></td><td>$53,025</td></tr>
+        <tr><td>Studio Sunset Beam vs designo paint <span class="tag">unproven at 85k</span></td><td class="plus">+$7,875</td></tr>
+        <tr class="sum"><td>Transact</td><td>$60,900</td></tr>
+        <tr><td>Walk — 64k Desert Sand is <a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-22/">$71,925</a>. Don’t pay fresher-mile money at 85k.</td><td>$71,400</td></tr>
       </tbody>
     </table>
-    <p>The +$7,500 is a judgment bump so a clean Studio does not print under the wrecked 2017 Magno at $57k, and sits above the clean 82k Magno at $53,500. It is not tape proving the $20k package still pays at 85k. There are zero Studio solds above 36k miles. If fluids/seat/body are lazy, take the bump back off and sit on $50.5–54k. If body rust at the spare-tire door or windshield, walk or $45k.</p>
+    <p>The bump exists so a clean Studio does not print under a wrecked Magno (<a href="https://bringatrailer.com/listing/2017-mercedes-amg-g63-21/">$59,850</a>) and sits above a clean Magno at the same miles (<a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg">$55,907</a>). There is no Studio sold above 36k miles. If fluids, seat, or body are lazy, drop back to $53–57k. Spare-door or windshield rust is a walk, or $45k.</p>
 
-    <h2>Hammer vs miles</h2>
-    <p>First-party solds used in this brief. Copper is Studio. Black is the 85k analog. Hollow red is a 2017 with a Carfax hit. Grey is another house. The square is this car at $58,000. Trophy Studio lives left of 40k miles. Scatter is hammer (BJ shown at ~$63k, its $69,300 is hammer+fees).</p>
-    <div class="chart"><svg viewBox="0 0 760 360" width="100%" role="img" aria-label="G63 hammer versus miles">
-<line x1="58.0" y1="16" x2="58.0" y2="304" stroke="#eadfcf"/><text x="58.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">0k</text><line x1="172.0" y1="16" x2="172.0" y2="304" stroke="#eadfcf"/><text x="172.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">20k</text><line x1="286.0" y1="16" x2="286.0" y2="304" stroke="#eadfcf"/><text x="286.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">40k</text><line x1="400.0" y1="16" x2="400.0" y2="304" stroke="#eadfcf"/><text x="400.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">60k</text><line x1="514.0" y1="16" x2="514.0" y2="304" stroke="#eadfcf"/><text x="514.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">80k</text><line x1="628.0" y1="16" x2="628.0" y2="304" stroke="#eadfcf"/><text x="628.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">100k</text><line x1="742.0" y1="16" x2="742.0" y2="304" stroke="#eadfcf"/><text x="742.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">120k</text><line x1="58" y1="281.8" x2="742" y2="281.8" stroke="#eadfcf"/><text x="50" y="285.8" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$40k</text><line x1="58" y1="237.5" x2="742" y2="237.5" stroke="#eadfcf"/><text x="50" y="241.5" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$50k</text><line x1="58" y1="193.2" x2="742" y2="193.2" stroke="#eadfcf"/><text x="50" y="197.2" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$60k</text><line x1="58" y1="148.9" x2="742" y2="148.9" stroke="#eadfcf"/><text x="50" y="152.9" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$70k</text><line x1="58" y1="104.6" x2="742" y2="104.6" stroke="#eadfcf"/><text x="50" y="108.6" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$80k</text><line x1="58" y1="60.3" x2="742" y2="60.3" stroke="#eadfcf"/><text x="50" y="64.3" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$90k</text><line x1="58" y1="16.0" x2="742" y2="16.0" stroke="#eadfcf"/><text x="50" y="20.0" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$100k</text>
-<circle cx="126.4" cy="63.4" r="5.5" fill="#b56a2b"><title>2016 Galactic Beam Studio · BaT</title></circle><circle cx="263.2" cy="62.5" r="5.5" fill="#b56a2b"><title>2018 Alien Green Studio · BaT</title></circle><circle cx="217.6" cy="106.8" r="5.5" fill="#b56a2b"><title>2016 Solarbeam Studio (mod) · BaT</title></circle><circle cx="246.1" cy="133.4" r="5" fill="#3d4a38"><title>2016 Polar White · BaT</title></circle><circle cx="343.0" cy="160.0" r="5" fill="#3d4a38"><title>2016 Black/Red · BaT</title></circle><circle cx="405.7" cy="195.4" r="5" fill="#3d4a38"><title>2016 Magno NB · BaT</title></circle><circle cx="462.7" cy="217.6" r="5" fill="#3d4a38"><title>2016 Mystic White 71k · BaT</title></circle><circle cx="542.5" cy="235.3" r="6.5" fill="#16140f"><title>2016 Mystic White analog · BaT</title></circle><circle cx="536.8" cy="193.2" r="5" fill="none" stroke="#7a2e1a" stroke-width="1.6"><title>2017 Gray Exclusive, damage · BaT</title></circle><circle cx="548.2" cy="206.5" r="5" fill="none" stroke="#7a2e1a" stroke-width="1.6"><title>2017 Magno Bronze, rear-end · BaT</title></circle><circle cx="422.8" cy="155.6" r="5" fill="#3d4a38"><title>2017 Desert Sand · BaT</title></circle><circle cx="280.3" cy="120.1" r="5" fill="#3d4a38"><title>2018 Mystic Red · BaT</title></circle><circle cx="413.1" cy="179.9" r="5" fill="#6b6458"><title>2016 BJ Jet Black Exclusive · ~$63k hammer / $69.3k +fees</title></circle><circle cx="525.4" cy="222.0" r="5" fill="#3d4a38"><title>2016 C&amp;B Magno Platinum · $53,500</title></circle><circle cx="578.2" cy="224.2" r="5" fill="#6b6458"><title>2014 Mecum Houston · $53,000</title></circle><circle cx="301.2" cy="182.6" r="5" fill="#6b6458"><title>2016 Collecting Cars wrap · Hagerty $62,403 all-in</title></circle><circle cx="696.3" cy="281.3" r="5" fill="#6b6458"><title>2015 Hagerty Magno · $40,125</title></circle><rect x="536.5" y="196.1" width="12" height="12" fill="none" stroke="#8a4a18" stroke-width="2"><title>This car — $58k fair</title></rect>
+    <h2>Miles kill the trophy money</h2>
+    <p class="cap">Copper is Studio. Black is the analog. Hollow red has a Carfax hit. Grey is another house. The square is this car at $60,900. Trophy Studio lives left of 40k miles.</p>
+    <div class="chart"><svg viewBox="0 0 760 360" width="100%" role="img" aria-label="G63 solds, hammer plus fees, versus miles">
+<line x1="58.0" y1="16" x2="58.0" y2="304" stroke="#eadfcf"/><text x="58.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">0k mi</text><line x1="172.0" y1="16" x2="172.0" y2="304" stroke="#eadfcf"/><text x="172.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">20k mi</text><line x1="286.0" y1="16" x2="286.0" y2="304" stroke="#eadfcf"/><text x="286.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">40k mi</text><line x1="400.0" y1="16" x2="400.0" y2="304" stroke="#eadfcf"/><text x="400.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">60k mi</text><line x1="514.0" y1="16" x2="514.0" y2="304" stroke="#eadfcf"/><text x="514.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">80k mi</text><line x1="628.0" y1="16" x2="628.0" y2="304" stroke="#eadfcf"/><text x="628.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">100k mi</text><line x1="742.0" y1="16" x2="742.0" y2="304" stroke="#eadfcf"/><text x="742.0" y="320" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">120k mi</text><line x1="58" y1="304.0" x2="742" y2="304.0" stroke="#eadfcf"/><text x="50" y="308.0" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$40k</text><line x1="58" y1="262.9" x2="742" y2="262.9" stroke="#eadfcf"/><text x="50" y="266.9" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$50k</text><line x1="58" y1="221.7" x2="742" y2="221.7" stroke="#eadfcf"/><text x="50" y="225.7" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$60k</text><line x1="58" y1="180.6" x2="742" y2="180.6" stroke="#eadfcf"/><text x="50" y="184.6" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$70k</text><line x1="58" y1="139.4" x2="742" y2="139.4" stroke="#eadfcf"/><text x="50" y="143.4" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$80k</text><line x1="58" y1="98.3" x2="742" y2="98.3" stroke="#eadfcf"/><text x="50" y="102.3" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$90k</text><line x1="58" y1="57.1" x2="742" y2="57.1" stroke="#eadfcf"/><text x="50" y="61.1" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$100k</text><line x1="58" y1="16.0" x2="742" y2="16.0" stroke="#eadfcf"/><text x="50" y="20.0" text-anchor="end" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$110k</text>
+<circle cx="126.4" cy="82.8" r="5.5" fill="#b56a2b"><title>2016 Galactic Beam Studio · BaT $93,765</title></circle><circle cx="263.2" cy="81.9" r="5.5" fill="#b56a2b"><title>2018 Alien Green Studio · BaT $93,975</title></circle><circle cx="217.6" cy="125.1" r="5.5" fill="#b56a2b"><title>2016 Solarbeam Studio (mod) · BaT $83,475</title></circle><circle cx="246.1" cy="151.1" r="5" fill="#3d4a38"><title>2016 Polar White · BaT $77,175</title></circle><circle cx="343.0" cy="177.0" r="5" fill="#3d4a38"><title>2016 Black/Red · BaT $70,875</title></circle><circle cx="405.7" cy="211.5" r="5" fill="#3d4a38"><title>2016 Magno NB · BaT $62,475</title></circle><circle cx="462.7" cy="233.1" r="5" fill="#3d4a38"><title>2016 Mystic White 71k · BaT $57,225</title></circle><circle cx="542.5" cy="250.4" r="6.5" fill="#16140f"><title>Analog · 2016 Mystic White 85k · BaT $53,025</title></circle><circle cx="536.8" cy="209.4" r="5" fill="none" stroke="#7a2e1a" stroke-width="1.6"><title>2017 Gray Exclusive, damage · BaT $63,000</title></circle><circle cx="548.2" cy="222.3" r="5" fill="none" stroke="#7a2e1a" stroke-width="1.6"><title>2017 Magno Bronze, rear-end · BaT $59,850</title></circle><circle cx="422.8" cy="172.7" r="5" fill="#3d4a38"><title>2017 Desert Sand · BaT $71,925</title></circle><circle cx="280.3" cy="138.1" r="5" fill="#3d4a38"><title>2018 Mystic Red · BaT $80,325</title></circle><circle cx="413.1" cy="183.5" r="5" fill="#6b6458"><title>2016 BJ Jet Black Exclusive · $69,300</title></circle><circle cx="525.4" cy="238.6" r="5" fill="#3d4a38"><title>2016 C&amp;B Magno Platinum · $55,907</title></circle><circle cx="578.2" cy="228.7" r="5" fill="#6b6458"><title>2014 Mecum Houston · $58,300</title></circle><circle cx="301.2" cy="211.8" r="5" fill="#6b6458"><title>2016 Collecting Cars wrap · $62,403</title></circle><circle cx="696.3" cy="291.9" r="5" fill="#6b6458"><title>2015 Hagerty Magno · $42,934</title></circle><rect x="536.5" y="212.0" width="12" height="12" fill="none" stroke="#8a4a18" stroke-width="2"><title>This car · $60,900</title></rect>
 <g font-size="11" font-family="-apple-system,sans-serif" fill="#6b6458">
   <circle cx="70" cy="348" r="5" fill="#b56a2b"/><text x="80" y="352">Studio</text>
   <circle cx="148" cy="348" r="5" fill="#3d4a38"/><text x="158" y="352">Volume / designo</text>
   <circle cx="298" cy="348" r="5" fill="#16140f"/><text x="308" y="352">Analog</text>
   <circle cx="378" cy="348" r="5" fill="none" stroke="#7a2e1a" stroke-width="1.6"/><text x="388" y="352">Accident</text>
   <circle cx="468" cy="348" r="5" fill="#6b6458"/><text x="478" y="352">Other house</text>
-  <rect x="580" y="342" width="10" height="10" fill="none" stroke="#8a4a18" stroke-width="2"/><text x="596" y="352">This car $58k</text>
+  <rect x="580" y="342" width="10" height="10" fill="none" stroke="#8a4a18" stroke-width="2"/><text x="596" y="352">This car</text>
 </g>
 </svg></div>
 
-    <h2>Driver band, 60–90k miles</h2>
-    <p>Same cars as a bar, cheapest to walk. Labels are links. This car is the copper bar.</p>
-    <div class="chart"><svg viewBox="0 0 760 280" width="100%" role="img" aria-label="Driver-band G63 hammers">
-<line x1="280.0" y1="8" x2="280.0" y2="252" stroke="#eadfcf"/><text x="280.0" y="272" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$45k</text><line x1="348.3" y1="8" x2="348.3" y2="252" stroke="#eadfcf"/><text x="348.3" y="272" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$50k</text><line x1="416.7" y1="8" x2="416.7" y2="252" stroke="#eadfcf"/><text x="416.7" y="272" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$55k</text><line x1="485.0" y1="8" x2="485.0" y2="252" stroke="#eadfcf"/><text x="485.0" y="272" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$60k</text><line x1="553.3" y1="8" x2="553.3" y2="252" stroke="#eadfcf"/><text x="553.3" y="272" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$65k</text><line x1="621.7" y1="8" x2="621.7" y2="252" stroke="#eadfcf"/><text x="621.7" y="272" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$70k</text><line x1="690.0" y1="8" x2="690.0" y2="252" stroke="#eadfcf"/><text x="690.0" y="272" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$75k</text><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/"><text x="272" y="23.0" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">Analog · 85k Mystic White · BaT</text></a><rect x="280" y="8.0" width="75.2" height="20.8" fill="#16140f"><title>Analog · 85k Mystic White · BaT · $50,500</title></rect><text x="361.2" y="23.0" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$50k</text><a href="https://www.mecum.com/lots/1144084/2014-mercedes-benz-g63-amg/"><text x="272" y="47.8" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">Mecum · 91k Polar White 2014</text></a><rect x="280" y="32.8" width="109.3" height="20.8" fill="#6b6458"><title>Mecum · 91k Polar White 2014 · $53,000</title></rect><text x="395.3" y="47.8" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$53k</text><a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg"><text x="272" y="72.6" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">C&amp;B · 82k Magno Platinum</text></a><rect x="280" y="57.6" width="116.2" height="20.8" fill="#3d4a38"><title>C&amp;B · 82k Magno Platinum · $53,500</title></rect><text x="402.2" y="72.6" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$53k</text><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-30/"><text x="272" y="97.4" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT · 71k Mystic White</text></a><rect x="280" y="82.4" width="129.8" height="20.8" fill="#3d4a38"><title>BaT · 71k Mystic White · $54,500</title></rect><text x="415.8" y="97.4" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$54k</text><a href="https://bringatrailer.com/listing/2017-mercedes-amg-g63-21/"><text x="272" y="122.2" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT · 86k Magno, rear-end</text></a><rect x="280" y="107.2" width="164.0" height="20.8" fill="#7a2e1a"><title>BaT · 86k Magno, rear-end · $57,000</title></rect><text x="450.0" y="122.2" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$57k</text><text x="272" y="147.0" text-anchor="end" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">This car · 85k Studio Sunset Beam</text><rect x="280" y="132.0" width="177.7" height="20.8" fill="#b56a2b"><title>This car · 85k Studio Sunset Beam · $58,000</title></rect><text x="463.7" y="147.0" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$58k</text><a href="https://bringatrailer.com/listing/2016-mercedes-benz-gl63-amg-5/"><text x="272" y="171.8" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT · 61k Magno NB</text></a><rect x="280" y="156.8" width="198.2" height="20.8" fill="#3d4a38"><title>BaT · 61k Magno NB · $59,500</title></rect><text x="484.2" y="171.8" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$59k</text><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-15/"><text x="272" y="196.6" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT · 84k Gray Exclusive, damage</text></a><rect x="280" y="181.6" width="205.0" height="20.8" fill="#7a2e1a"><title>BaT · 84k Gray Exclusive, damage · $60,000</title></rect><text x="491.0" y="196.6" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$60k</text><a href="https://www.barrett-jackson.com/palm-beach-2025/docket/vehicle/2016-mercedes-benz-g63-amg-287985"><text x="272" y="221.4" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BJ · 62k Jet Black Exclusive (~hammer)</text></a><rect x="280" y="206.4" width="246.0" height="20.8" fill="#6b6458"><title>BJ · 62k Jet Black Exclusive (~hammer) · $63,000</title></rect><text x="532.0" y="221.4" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$63k</text><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-22/"><text x="272" y="246.2" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT · 64k Desert Sand (walk context)</text></a><rect x="280" y="231.2" width="321.2" height="20.8" fill="#3d4a38"><title>BaT · 64k Desert Sand (walk context) · $68,500</title></rect><text x="607.2" y="246.2" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$68k</text>
+    <h2>This car’s band, 60–90k</h2>
+    <p class="cap">Same solds as a bar. Labels are links. Copper is this car.</p>
+    <div class="chart"><svg viewBox="0 0 760 268" width="100%" role="img" aria-label="Driver-band G63 prices, hammer plus fees">
+<line x1="277.9" y1="8" x2="277.9" y2="240" stroke="#eadfcf"/><text x="277.9" y="260" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$50k</text><line x1="352.5" y1="8" x2="352.5" y2="240" stroke="#eadfcf"/><text x="352.5" y="260" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$55k</text><line x1="427.2" y1="8" x2="427.2" y2="240" stroke="#eadfcf"/><text x="427.2" y="260" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$60k</text><line x1="501.9" y1="8" x2="501.9" y2="240" stroke="#eadfcf"/><text x="501.9" y="260" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$65k</text><line x1="576.5" y1="8" x2="576.5" y2="240" stroke="#eadfcf"/><text x="576.5" y="260" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$70k</text><line x1="651.2" y1="8" x2="651.2" y2="240" stroke="#eadfcf"/><text x="651.2" y="260" text-anchor="middle" fill="#6b6458" font-size="11" font-family="-apple-system,sans-serif">$75k</text><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/"><text x="240" y="24.0" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">Analog, 85k Mystic White</text></a><rect x="248" y="8.0" width="75.0" height="22.2" fill="#16140f"><title>Analog, 85k Mystic White · $53,025</title></rect><text x="329.0" y="24.0" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$53,025</text><a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg"><text x="240" y="50.2" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">C&amp;B, 82k Magno Platinum</text></a><rect x="248" y="34.2" width="118.1" height="22.2" fill="#3d4a38"><title>C&amp;B, 82k Magno Platinum · $55,907</title></rect><text x="372.1" y="50.2" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$55,907</text><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-30/"><text x="240" y="76.4" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT, 71k Mystic White</text></a><rect x="248" y="60.4" width="137.8" height="22.2" fill="#3d4a38"><title>BaT, 71k Mystic White · $57,225</title></rect><text x="391.8" y="76.4" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$57,225</text><a href="https://bringatrailer.com/listing/2017-mercedes-amg-g63-21/"><text x="240" y="102.7" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT, 86k Magno, rear-end</text></a><rect x="248" y="86.7" width="177.0" height="22.2" fill="#7a2e1a"><title>BaT, 86k Magno, rear-end · $59,850</title></rect><text x="431.0" y="102.7" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$59,850</text><text x="240" y="128.9" text-anchor="end" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">This car, 85k Studio</text><rect x="248" y="112.9" width="192.6" height="22.2" fill="#b56a2b"><title>This car, 85k Studio · $60,900</title></rect><text x="446.6" y="128.9" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$60,900</text><a href="https://bringatrailer.com/listing/2016-mercedes-benz-gl63-amg-5/"><text x="240" y="155.1" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT, 61k Magno NB</text></a><rect x="248" y="139.1" width="216.2" height="22.2" fill="#3d4a38"><title>BaT, 61k Magno NB · $62,475</title></rect><text x="470.2" y="155.1" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$62,475</text><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-15/"><text x="240" y="181.3" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT, 84k Gray, damage</text></a><rect x="248" y="165.3" width="224.0" height="22.2" fill="#7a2e1a"><title>BaT, 84k Gray, damage · $63,000</title></rect><text x="478.0" y="181.3" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$63,000</text><a href="https://www.barrett-jackson.com/palm-beach-2025/docket/vehicle/2016-mercedes-benz-g63-amg-287985"><text x="240" y="207.6" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BJ, 62k Jet Black Exclusive</text></a><rect x="248" y="191.6" width="318.1" height="22.2" fill="#6b6458"><title>BJ, 62k Jet Black Exclusive · $69,300</title></rect><text x="572.1" y="207.6" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$69,300</text><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-22/"><text x="240" y="233.8" text-anchor="end" fill="#8a4a18" font-size="11" font-family="-apple-system,sans-serif">BaT, 64k Desert Sand — walk</text></a><rect x="248" y="217.8" width="357.3" height="22.2" fill="#3d4a38"><title>BaT, 64k Desert Sand — walk · $71,925</title></rect><text x="611.3" y="233.8" fill="#16140f" font-size="11" font-family="-apple-system,sans-serif" font-variant-numeric="tabular-nums">$71,925</text>
 </svg></div>
 
-    <h2>What Sunset Beam actually is</h2>
-    <p>Factory name is <em>AMG Performance Studio Package</em>, not a $4–6.5k designo metallic and not Magno. 2016 US brochure colors: Alien Green, AMG Solarbeam, Galacticbeam, Sunsetbeam (paint code 2173). Gloss-black roof, flares, mirrors, bumpers, spare surround. designo Black Exclusive Nappa, stitch keyed to the paint. Carbon interior. Mutually exclusive with the designo Exclusive Leather package.</p>
-    <p>Original money is about <strong>$20,000</strong> for the package. Car and Driver put the four special color-and-trim packages at $20,000 on a $140,825 2016 G63. An 2018 Alien Green window sticker shows $20k Studio Exclusive, $163,795 sticker. German list for sunsetbeam in 2015 was €18,913. Do not mix this with Magno Night Black / Magno Platinum, Edition 463, 2019+ Night Package / black optics, or the other US $20k package (Monza Grey Magno + saddle Exclusive).</p>
-    <p>Does Studio still print at 85k? <span class="tag thin">Thin</span> Zero Sunset Beam <em>solds</em> at any mileage, any house, in this pull. The only Sunset Beam on BaT is a 22k-mile truck that no-saled at $94,653 in Feb 2024. Off-BaT, the only crazy-color Studio sold is the modified Alien Green at Mecum. That is the trophy card, not this one.</p>
-
-    <h2>How to chop it</h2>
-    <ul>
-      <li><strong>Keep:</strong> 2013–2018 W463 G63 AMG only. Drop 2019+ W463A (independent suspension, different truck), G550, 4x4², 6x6, G65, Brabus G700.</li>
-      <li><strong>Keep:</strong> miles. Under 30k trophy / 30–60k / 60–90k driver / 90k+ cheap driver. 85k is the driver band. Do not analog it to a 12k Galactic Beam.</li>
-      <li><strong>Keep:</strong> Studio crazy-color vs volume vs designo paint vs Magno. Magno ≠ Studio. Salvage/Copart is a different book.</li>
-      <li><strong>Drop:</strong> Edition 463, 2019+ black optics, stacking Exclusive Leather on Studio.</li>
-      <li><strong>Noise:</strong> year-within-2013–18, Exclusive interior alone, dealer vs private. Barrett-Jackson ≠ BaT ≠ Mecum.</li>
-    </ul>
-
-    <h2>Miles bands (W463 G63)</h2>
+    <h2>Solds</h2>
+    <p class="cap">First-party lot pages. One price each, hammer plus that house’s fee.</p>
     <table>
-      <thead><tr><th>Band</th><th>n</th><th>Read</th></tr></thead>
+      <thead><tr><th>Price</th><th>Car</th><th>Miles</th><th></th></tr></thead>
       <tbody>
-        <tr><td>&lt;30k</td><td>1 BaT sold + RNMs</td><td>Thin. Trophy ~$85–90k. 12k Galactic Beam Studio $89,300.</td></tr>
-        <tr><td>30–60k</td><td>5+ useful solds</td><td>Median about $73,500 on BaT. Polar White 33k $73,500; Magno 36–38k $71–77k; 2018 Mystic Red 39k $76,500; black/red 50k $67,500. Collecting Cars 43k wrap $62,403 all-in (Hagerty).</td></tr>
-        <tr><td>60–90k driver</td><td>BaT 6 + C&amp;B 1 + BJ 1</td><td>Clean same-year 85k is $50,500. Clean Magno 82k is $53,500. Median of the band is mid-$50s. Two 2017s with accidents still printed $57k and $60k. BJ 62k Exclusive is $69,300 all-in.</td></tr>
-        <tr><td>90k+</td><td>2 first-party</td><td>2014 Mecum Houston 91k $53,000 / $58,300 +10%. 2015 Hagerty Magno 112k $40,125 / $42,934 +7%. Floor, not analog.</td></tr>
+        <tr class="sec"><td colspan="4">This car’s miles</td></tr>
+        <tr><td class="money">$53,025</td><td>2016 Designo Mystic White — analog, worn seat</td><td>85k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/">BaT</a></td></tr>
+        <tr><td class="money">$55,907</td><td>2016 Magno Platinum, Exclusive — clean Magno, similar miles</td><td>82k</td><td><a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg">C&amp;B</a></td></tr>
+        <tr><td class="money">$57,225</td><td>2016 Designo Mystic White</td><td>71k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-30/">BaT</a></td></tr>
+        <tr><td class="money">$59,850</td><td>2017 Magno Sintered Bronze — 2018 rear-end, worn roof</td><td>86k</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-amg-g63-21/">BaT</a></td></tr>
+        <tr class="here"><td class="money">$60,900</td><td>This car — 2016 Studio Sunset Beam</td><td>~85k</td><td>transact</td></tr>
+        <tr><td class="money">$62,475</td><td>2016 Magno Night Black — turbo/cooler done, 22s</td><td>61k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-gl63-amg-5/">BaT</a></td></tr>
+        <tr><td class="money">$63,000</td><td>2017 Tectite Gray Exclusive — Carfax multi-panel</td><td>84k</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-15/">BaT</a></td></tr>
+        <tr><td class="money">$69,300</td><td>2016 Jet Black Exclusive — fewer miles, different house</td><td>62k</td><td><a href="https://www.barrett-jackson.com/palm-beach-2025/docket/vehicle/2016-mercedes-benz-g63-amg-287985">BJ</a></td></tr>
+        <tr><td class="money">$71,925</td><td>2017 Manufaktur Desert Sand — fresher; walk context</td><td>64k</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-22/">BaT</a></td></tr>
+        <tr><td class="money">RNM $49,875</td><td>2017 Obsidian Black — ugly-records floor</td><td>81k</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-24/">BaT</a></td></tr>
+
+        <tr class="sec"><td colspan="4">Fresher miles — do not analog</td></tr>
+        <tr><td class="money">$77,175</td><td>2016 Polar White Exclusive</td><td>33k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-34/">BaT</a></td></tr>
+        <tr><td class="money">$70,875</td><td>2016 Black / Classic Red</td><td>50k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-16/">BaT</a></td></tr>
+        <tr><td class="money">$80,325</td><td>2018 Designo Mystic Red</td><td>39k</td><td><a href="https://bringatrailer.com/listing/2018-mercedes-benz-g63-21/">BaT</a></td></tr>
+        <tr><td class="money">$62,403</td><td>2016 Edition 463, wrap over Iridium Silver</td><td>43k</td><td><a href="https://collectingcars.com/for-sale/2016-mercedes-benz-w463-g63-amg-1">Collecting Cars</a></td></tr>
+        <tr><td class="money">$93,765</td><td>2016 Galactic Beam Studio</td><td>12k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-15/">BaT</a></td></tr>
+        <tr><td class="money">$93,975</td><td>2018 Alien Green Studio — $20k pkg on sticker</td><td>36k</td><td><a href="https://bringatrailer.com/listing/2018-mercedes-amg-g63-21/">BaT</a></td></tr>
+        <tr><td class="money">$83,475</td><td>2016 Solarbeam Studio — modified, 2019 minor front</td><td>28k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-19/">BaT</a></td></tr>
+        <tr><td class="money">$99,000</td><td>2016 Alien Green Studio, aftermarket 2022-style kit</td><td>n/s</td><td><a href="https://www.mecum.com/lots/536792/2016-mercedes-benz-g63-amg/">Mecum K275</a></td></tr>
+        <tr><td class="money">RNM $99,386</td><td>2016 Sunset Beam Studio — not a sold</td><td>22k</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-10/">BaT</a></td></tr>
+
+        <tr class="sec"><td colspan="4">90k+ floor</td></tr>
+        <tr><td class="money">$58,300</td><td>2014 Polar White Exclusive</td><td>91k</td><td><a href="https://www.mecum.com/lots/1144084/2014-mercedes-benz-g63-amg/">Mecum Houston</a></td></tr>
+        <tr><td class="money">$54,076</td><td>2015 Black Exclusive</td><td>95k</td><td><a href="https://carsandbids.com/auctions/3BgEA75A/2015-mercedes-benz-g63-amg">C&amp;B</a></td></tr>
+        <tr><td class="money">$42,934</td><td>2015 Magno Night Black</td><td>112k</td><td><a href="https://www.hagerty.com/marketplace/auction/2015-mercedes-benz-g63-amg/c234ec8d-1314-47af-97c0-449281d0f490">Hagerty</a></td></tr>
       </tbody>
     </table>
+    <p class="note">Not sold: C&amp;B Galactic Beam 34k high bid $73,500 <a href="https://carsandbids.com/auctions/3oy1vpOE/2016-mercedes-benz-g63-amg">lot</a>; C&amp;B Solar Beam 35k still live <a href="https://carsandbids.com/auctions/9abRqwpo/2016-mercedes-benz-g63-amg">lot</a>. SOMO none. Hemmings none as solds. Skip the lifted 2015 Mecum Dallas at $115,500 and the 87 km RM Paris trophy.</p>
 
-    <h2>Studio / crazy-color solds</h2>
-    <p>All of these are under 40k miles, or modified. None live in the driver band.</p>
-    <table>
-      <thead><tr><th>Date</th><th>Car</th><th>Miles</th><th>Hammer</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>2025-04-01</td><td>2016 Galactic Beam Studio</td><td>12k</td><td class="money">$89,300</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-15/">BaT</a></td></tr>
-        <tr><td>2024-06-15</td><td>2018 Alien Green Studio</td><td>36k</td><td class="money">$89,500</td><td><a href="https://bringatrailer.com/listing/2018-mercedes-amg-g63-21/">BaT</a> · $20k pkg on sticker</td></tr>
-        <tr><td>2024-02-27</td><td>2016 Solarbeam Studio</td><td>28k</td><td class="money">$79,500</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-19/">BaT</a> · modified, 2019 minor front</td></tr>
-        <tr><td>2023-01-07</td><td>2016 Alien Green Studio, 2022-style kit</td><td>n/s</td><td class="money">$90,000 / $99,000 +10%</td><td><a href="https://www.mecum.com/lots/536792/2016-mercedes-benz-g63-amg/">Mecum K275</a> · do not use</td></tr>
-        <tr><td>2024-02-09</td><td>2016 Sunset Beam Studio</td><td>22k</td><td class="money">RNM $94,653</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-10/">BaT</a> · <span class="tag thin">not a sold</span></td></tr>
-      </tbody>
-    </table>
-
-    <h2>2016 volume + designo (not Studio)</h2>
-    <table>
-      <thead><tr><th>Date</th><th>Spec</th><th>Miles</th><th>Hammer</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>2026-01-06</td><td>Polar White, Exclusive</td><td>33k</td><td class="money">$73,500</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-34/">BaT</a></td></tr>
-        <tr><td>2025-09-24</td><td>Black / Classic Red</td><td>50k</td><td class="money">$67,500</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-g63-16/">BaT</a></td></tr>
-        <tr><td>2026-03-02</td><td>Magno Night Black</td><td>61k</td><td class="money">$59,500</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-benz-gl63-amg-5/">BaT</a> · turbo/cooler done, 22s</td></tr>
-        <tr><td>2025-10-19</td><td>Polar White / Red</td><td>58k</td><td class="money">RNM $61,000</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-32/">BaT</a></td></tr>
-        <tr><td>2025-10-31</td><td>Designo Mystic White</td><td>71k</td><td class="money">$54,500</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-30/">BaT</a></td></tr>
-        <tr><td>2025-09-16</td><td>Designo Mystic White</td><td>85k</td><td class="money">$50,500</td><td><a href="https://bringatrailer.com/listing/2016-mercedes-amg-g63-29/">BaT</a> · analog</td></tr>
-        <tr><td>2024-11-29</td><td>Designo Magno Platinum / Red+Black Exclusive</td><td>82k</td><td class="money">$53,500 / $55,907 +4.5%</td><td><a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg">C&amp;B</a></td></tr>
-      </tbody>
-    </table>
-
-    <h2>Other houses</h2>
-    <p>First-party lot pages only. Hammer, then that house’s buyer’s premium. SOMO and Hemmings: none found. Classic.com blocked from this pull. Hypercars aggregator dollars discarded unless the lot page confirms.</p>
-    <table>
-      <thead><tr><th>House</th><th>Car</th><th>Miles</th><th>Hammer</th><th>Hammer+fees</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Barrett-Jackson Palm Beach 2025</td><td>2016 Jet Black Exclusive</td><td>62,301</td><td class="money">~$63,000 if +10%</td><td class="money">$69,300</td><td><a href="https://www.barrett-jackson.com/palm-beach-2025/docket/vehicle/2016-mercedes-benz-g63-amg-287985">lot 434</a> · Hagerty VT; BJ login-walls $</td></tr>
-        <tr><td>Cars &amp; Bids</td><td>2016 Magno Platinum</td><td>82,000</td><td class="money">$53,500</td><td class="money">$55,907 +4.5%</td><td><a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg">9QqvQxEM</a></td></tr>
-        <tr><td>Cars &amp; Bids</td><td>2015 Black Exclusive</td><td>94,700</td><td class="money">~$51,500 if +5%</td><td class="money">$54,076</td><td><a href="https://carsandbids.com/auctions/3BgEA75A/2015-mercedes-benz-g63-amg">3BgEA75A</a> · Hagerty VT; page Cloudflare-blocked</td></tr>
-        <tr><td>Mecum Houston 2025 S298</td><td>2014 Polar White Exclusive</td><td>91,257</td><td class="money">$53,000</td><td class="money">$58,300 +10%</td><td><a href="https://www.mecum.com/lots/1144084/2014-mercedes-benz-g63-amg/">lot</a></td></tr>
-        <tr><td>Mecum Kissimmee 2023 K275</td><td>2016 Alien Green Studio, aftermarket kit</td><td>n/s</td><td class="money">$90,000</td><td class="money">$99,000 +10%</td><td><a href="https://www.mecum.com/lots/536792/2016-mercedes-benz-g63-amg/">lot</a> · do not use</td></tr>
-        <tr><td>Mecum Dallas 2021 F213.1</td><td>2015, lifted Fox/22s</td><td>36,300</td><td class="money">$105,000</td><td class="money">$115,500 +10%</td><td><a href="https://www.mecum.com/lots/490638/2015-mercedes-benz-g63-amg/">lot</a> · old, lifted, skip</td></tr>
-        <tr><td>Collecting Cars</td><td>2016 Edition 463, satin-blue wrap over Iridium Silver</td><td>42,674</td><td class="money">login-walled</td><td class="money">$62,403 Hagerty VT</td><td><a href="https://collectingcars.com/for-sale/2016-mercedes-benz-w463-g63-amg-1">lot 73659</a></td></tr>
-        <tr><td>Collecting Cars</td><td>2017 Mystic White, Edition 463</td><td>49,252 km</td><td class="money">unknown</td><td class="money">unknown</td><td><a href="https://collectingcars.com/for-sale/2017-mercedes-benz-w463-g63-amg-1">lot</a></td></tr>
-        <tr><td>Hagerty Marketplace</td><td>2015 Magno Night Black</td><td>111,980</td><td class="money">$40,125</td><td class="money">$42,934 +7%</td><td><a href="https://www.hagerty.com/marketplace/auction/2015-mercedes-benz-g63-amg/c234ec8d-1314-47af-97c0-449281d0f490">lot</a></td></tr>
-        <tr><td>RM Sotheby’s Paris 2023</td><td>2017 Exclusive Edition, 87 km</td><td>87 km</td><td class="money">€145,000 if +15%</td><td class="money">€166,750</td><td><a href="https://rmsothebys.com/auctions/pa23/lots/r0088-2017-mercedesamg-g-63-exclusive-edition/">lot 118</a> · trophy, VAT extra, skip</td></tr>
-        <tr><td>SOMO</td><td>2013–2018 W463 G63</td><td>—</td><td colspan="2">None found</td><td>sothebysmotorsport.com</td></tr>
-        <tr><td>Hemmings</td><td>2013–2018 W463 G63 sold</td><td>—</td><td colspan="2">None found</td><td>asks only (mostly 6x6)</td></tr>
-      </tbody>
-    </table>
-    <p class="note">Not sold: C&amp;B Galactic Beam 33.6k high bid $73,500 <a href="https://carsandbids.com/auctions/3oy1vpOE/2016-mercedes-benz-g63-amg">3oy1vpOE</a>; C&amp;B Solar Beam 35k still live <a href="https://carsandbids.com/auctions/9abRqwpo/2016-mercedes-benz-g63-amg">9abRqwpo</a>; RM 2015 Jet Black 75k <a href="https://rmsothebys.com/auctions/0225/lots/r0023-2015-mercedesbenz-g-63-amg/">not sold</a>. Barrett-Jackson Scottsdale 2024 2018 Magno lot exists, dollar unpublished <a href="https://www.barrett-jackson.com/scottsdale-2024/docket/vehicle/2018-mercedes-benz-g63-amg-272678">docket</a>.</p>
-
-    <h2>Why fair is $58k, not $50.5k</h2>
-    <p>Two 2017s at the same mileage still beat the clean 2016 analog, through accident disclosure. The clean Magno at similar miles on Cars &amp; Bids printed $53,500.</p>
-    <table>
-      <thead><tr><th>Date</th><th>Car</th><th>Miles</th><th>Hammer</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>2024-11-29</td><td>2016 Magno Platinum, Exclusive</td><td>82k</td><td class="money">$53,500</td><td><a href="https://carsandbids.com/auctions/9QqvQxEM/2016-mercedes-benz-g63-amg">C&amp;B</a> · clean Magno, similar miles</td></tr>
-        <tr><td>2024-11-27</td><td>2017 Tectite Gray, Exclusive + Night</td><td>84k</td><td class="money">$60,000</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-15/">BaT</a> · Carfax multi-panel</td></tr>
-        <tr><td>2025-07-28</td><td>2017 Magno Sintered Bronze</td><td>86k</td><td class="money">$57,000</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-amg-g63-21/">BaT</a> · 2018 rear-end, worn roof</td></tr>
-        <tr><td>2026-07-26</td><td>2017 Obsidian Black</td><td>81k</td><td class="money">RNM $47,500</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-24/">BaT</a> · floor if records/rust are ugly</td></tr>
-        <tr><td>2026-03-10</td><td>2017 Manufaktur Desert Sand</td><td>64k</td><td class="money">$68,500</td><td><a href="https://bringatrailer.com/listing/2017-mercedes-benz-g63-22/">BaT</a> · walk context, fresher</td></tr>
-      </tbody>
-    </table>
-    <p>Magno is not Studio, and two of those are 2017s with hits. The move is not “the $20k package still pays at 85k.” The move is a clean, correctly specced Sunset Beam should not print under a wrecked Magno, and should sit above a clean Magno at the same miles. $58k sits above the damaged Magno, above the clean C&amp;B Magno, below the stale damaged gray, $7.5k over the clean same-year analog. That bump is a judgment on a thin cell, labeled as such. Off-BaT did not move the lock: the 82k Magno brackets it, the 62k BJ Exclusive is fewer miles and a different house.</p>
+    <h2>What Studio is</h2>
+    <p>Factory name is AMG Performance Studio Package, about <strong>$20,000</strong> new, not a $4–6.5k designo metallic and not Magno. 2016 US colors: Alien Green, Solarbeam, Galacticbeam, Sunsetbeam (code 2173). Gloss-black roof and flares, paint-keyed Exclusive Nappa, carbon. Mutually exclusive with Exclusive Leather. Magno ≠ Studio. Edition 463 ≠ Studio. 2019+ black optics is a different truck.</p>
+    <p>Zero Sunset Beam solds, any miles, any house. The only Sunset Beam on tape is a 22k truck that no-saled. No stock Studio sold above 36k miles. At 85k this is a high-mile solid-axle G63 that happens to have a $20k factory package.</p>
 
     <h2>What actually moves the check</h2>
-    <p>These are solid-axle coil-spring W463s. Not ABC. Transfer-case VG150E wants fluid at 50k/5yr; missing trans/TC/diff history is real money at 85k. M157 is labor-heavy. Body rust at the spare-tire door, windshield base, rain gutters, and hinges is a walk or a five-figure body bill. Surface rust on screws is normal. Documented 50k fluids, a recent B service, and a clean seat can add a few thousand. Sub-40k miles is a different card ($70–90k). Salvage is a different book (~$30k).</p>
+    <p>Solid-axle coil-spring W463, not ABC. Missing trans / transfer-case / diff fluid at 85k is real money. Body rust at the spare-tire door, windshield base, rain gutters, or hinges is a walk or a five-figure body bill. Documented 50k fluids and a clean seat can add a few thousand. Salvage is a different book (~$30k).</p>
 
     <h2>Gaps</h2>
     <ul>
-      <li>No Sunset Beam sold, any miles, any auction house.</li>
-      <li>No stock Studio sold above 36k miles. The Mecum Alien Green is a 2022-style kit.</li>
-      <li>Reserve/BaT ingest for G63 titles is thin; this brief is first-party listing pages, not a complete G63 tape.</li>
-      <li>SOMO none. Hemmings none as solds. Classic.com blocked. Some C&amp;B/BJ pages login- or Cloudflare-walled; those dollars are Hagerty Valuation Tool or the house’s published sold figure, flagged as such.</li>
-      <li>No official US Studio production count. No 2016 Sunsetbeam window sticker dollar in-hand; $20k is 2016 C&amp;D plus 2018 sticker.</li>
+      <li>No Sunset Beam sold. No stock Studio sold above 36k miles.</li>
+      <li>Some C&amp;B and BJ pages are login- or Cloudflare-walled; those dollars are the house’s published sold or Hagerty VT, as linked.</li>
+      <li>No 2016 Sunsetbeam window sticker in-hand. $20k is 2016 Car and Driver plus an 2018 Alien Green sticker.</li>
     </ul>
 
-    <div class="callout">
-      <strong>One line</strong>
-      An 85k-mile Sunset Beam Studio is a $58,000 hammer driver ($60,900 with BaT 5%), not an $89,000 trophy. The color story is real. The tape has no proof it survives past 36k miles. Price the miles, then pay a small, honest premium for the package, and walk at $68,000 hammer.
-    </div>
-
     <div class="foot">
-      Prepared 29 August 2026. Comp hammers are as published by the house, with that house’s buyer’s premium shown next to them. Card dollars are hammer, with BaT 5% shown next to fair. No transport, no title tax. Not an offer to buy or sell. PPI independently.
+      Prepared 29 August 2026. All figures are hammer plus that house’s buyer’s premium. No transport, no title tax. Not an offer to buy or sell. PPI independently.
     </div>
   </div>
 </body>
