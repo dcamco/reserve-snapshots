@@ -83,6 +83,30 @@
     color: var(--muted);
   }
   .num b { display: block; font-size: 26px; margin-top: 4px; font-weight: 600; letter-spacing: -0.02em; }
+  .num i {
+    display: block;
+    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+  .desk {
+    width: 100%;
+    margin: 8px 0 16px;
+  }
+  .desk td:first-child {
+    width: 22%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: top;
+  }
   .note {
     color: var(--muted);
     font-size: 13px;
@@ -157,6 +181,7 @@
     .nums { grid-template-columns: 1fr; }
     h1 { font-size: 26px; }
     .num b { font-size: 22px; }
+    .desk td:first-child { width: 32%; white-space: normal; }
   }
   @media print {
     body { background: #fff; }
@@ -167,11 +192,51 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="kicker">Market note · 29 August 2026</div>
+    <div class="kicker">Desk lock · 29 August 2026 · ~7:40pm CT</div>
     <h1>2001 Dodge Viper GTS ACR<br>Kenosha, red/black, 7,900 miles claimed</h1>
-    <p class="dek">Gen-2 American Club Racer. As-advertised original-Koni car. Facebook $80,000. Driver, not a trophy.</p>
+    <p class="dek">Facebook private, Kenosha WI. Coil-overs on; seller says originals still in hand. Ask $80,000. Two photos. No VIN. Not a live auction.</p>
     <div class="rule"></div>
 
+    <h2 id="desk">Desk</h2>
+    <div class="take">Offer <strong>$68,000</strong> on the car, contingent on VIN, originals in the deal, and PPI. $80k as-sits is a pass. Tape is retail BaT hammers, not wholesale. Expected transact <strong>$75,000</strong>. Walk <strong>$76,000</strong> is a driver number, not a 12-month trade. Do not meet in the middle at $75k. If seller will not come, walk.</div>
+
+    <div class="nums">
+      <div class="num hit"><span>12-month offer</span><b>$68,000</b><i>VIN + originals + PPI</i></div>
+      <div class="num"><span>Fair</span><b>$72,000</b><i>$76,000 documented</i></div>
+      <div class="num"><span>Walk</span><b>$76,000</b><i>driver, not the trade</i></div>
+    </div>
+    <div class="nums">
+      <div class="num"><span>Analog</span><b>$75,000</b><i>+ $73,000 · 10k-mi 2001s</i></div>
+      <div class="num"><span>Expected transact</span><b>$75,000</b><i>GTS-money, not a thesis</i></div>
+      <div class="num"><span>Ask</span><b>$80,000</b><i>standing private, no clock</i></div>
+    </div>
+    <p class="note">Locked 2026-08-29 ~7:40pm CT. Analog, fair, and walk below are the lock — not restated. Watchers: MISSING (Facebook).</p>
+
+    <table class="desk">
+      <tbody>
+        <tr><td>analog</td><td>$75,000 (10k-mi 2001, 2026-04-13) + $73,000 (10k-mi 2001, 2024-09-21), ceiling $95,000 (2.6k-mi 2001, 2025-09-12); RNM $84,000 (9k-mi 2002, 2025-10-25)</td></tr>
+        <tr><td>fair</td><td>$72,000 as-sits (coil-overs on, nothing verified) / $76,000 with originals reinstalled-or-boxed + VIN/PPI/records clean</td></tr>
+        <tr><td>expected transact</td><td>$75,000</td></tr>
+        <tr><td>bid_vs_time</td><td>ask $80,000, standing private, no clock</td></tr>
+        <tr><td>watchers</td><td>MISSING (Facebook)</td></tr>
+        <tr><td>walk</td><td>$76,000</td></tr>
+        <tr><td>buy_if</td><td>ALL of VIN + clean title, original Konis included or reinstalled, PPI with frame + undercarriage, records supporting 7,900 mi, AND price ≤ $76k. Tape shows NO ACR premium over GTS; this is a GTS-money buy, not a thesis trade.</td></tr>
+      </tbody>
+    </table>
+    <p>$80k as-sits is a pass. Tape is retail BaT hammers, not wholesale.</p>
+    <p>G2 ACR 24-month clean median $75,000 (n=7) vs 2000–02 GTS $74,000 (n=17). Thesis (ACR premium / gen-5 tide) is NOT in the tape. Low-mile pairs invert: 8k 2001 GTS $87k Jul 2025 vs 10k 2001 ACRs $73–75k.</p>
+
+    <h2 id="offer">12-month hold</h2>
+    <div class="take">Goal: make money after 12 months on a FLAT tape. Do not pay for the thesis. Offer <strong>$68,000</strong> on the car, contingent on VIN, originals in the deal, and PPI.</div>
+    <ul>
+      <li>Base exit if documented original-Koni: ~$78k clean print (interpolated clean BaT at 7,900 mi was ~$78–82k).</li>
+      <li>$72k is scratch. $76k walk is a driver number, not a 12-month trade. Do not meet in the middle at $75k. If seller will not come, walk.</li>
+      <li>All-in adders: +~$2k enclosed Kenosha→Houston. TX 6.25% tax is flagged. If tax hits, knock another ~$4k off the bid.</li>
+    </ul>
+    <p class="note"><a href="https://www.facebook.com/commerce/listing/1008980098840079/">Marketplace listing</a>. Seller Timothy Stpeter. Facebook private, Kenosha WI, red/black, 7,900 miles claimed, ask $80,000. Aftermarket coil-overs installed; seller says originals still in hand. Two photos. No VIN. Not a live auction.</p>
+
+    <h2>Comps</h2>
+    <p class="note">Solds, charts, and the $91,350 / $95,000 stack below are unchanged. Desk analog, fair, and walk are the lock above.</p>
     <div class="take">Retail around <strong>$95,000</strong>. Analog is the same-year, same-miles Deep Sapphire GTS at <strong>$91,350</strong> — not the $78,750 Collectibleclassics ACR flip. This Facebook ask <strong>$80,000</strong> is under that retail <em>if the story is true</em>. $73,000 was a messy-car number (Konis off, no VIN, Wisconsin ship), not “ACR cheaper than GTS.” Trophy is 2.4–2.6k at $96,600–$99,750.</div>
 
     <div class="nums">
@@ -285,7 +350,7 @@
     </ul>
 
     <div class="foot">
-      Prepared 29 August 2026. All figures are hammer plus that house’s buyer’s premium. No transport, no title tax. Not an offer to buy or sell. PPI independently.
+      Prepared 29 August 2026. Desk locked 29 August 2026 ~7:40pm CT. All figures are hammer plus that house’s buyer’s premium. No transport, no title tax except the 12-month overlay flag. Not an offer to buy or sell. PPI independently.
     </div>
   </div>
 </body>
