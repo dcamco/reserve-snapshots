@@ -140,8 +140,8 @@ button.ghost{background:var(--panel);border:1px solid var(--line2);color:var(--f
 <script>
 let D=null, I={}, R=[];
 const $=s=>document.querySelector(s), money=n=>n==null?'–':'$'+Math.round(n).toLocaleString();
-Promise.all([fetch('comps.json?v=1788371683').then(r=>r.json()),
-             fetch('intel.json?v=1788371683').then(r=>r.json()).catch(()=>({}))])
+Promise.all([fetch('comps.json?v=1788372296').then(r=>r.json()),
+             fetch('intel.json?v=1788372296').then(r=>r.json()).catch(()=>({}))])
   .then(([d,i])=>{D=d;I=i;init();});
 function premium(src,h){const p=D.premiums[src]||D.premium_default;let f=Math.max(h*p[0],p[1]);if(p[2])f=Math.min(f,p[2]);return f;}
 function allin(src,h){return h+premium(src,h);}
