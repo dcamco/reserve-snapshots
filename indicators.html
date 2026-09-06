@@ -1,0 +1,105 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Reserve — market indicators</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--line:#21262d;--line2:#30363d;--fg:#c9d1d9;--hd:#e6edf3;
+      --dim:#8b949e;--up:#3fb950;--down:#f85149;--link:#58a6ff;--accent:#d29922}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);margin:0;padding:20px clamp(12px,3vw,32px) 40px;
+     font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:1180px;margin-inline:auto}
+h1{font-size:clamp(18px,4vw,24px);margin:4px 0 2px;color:var(--hd)}
+h2{font-size:clamp(14px,3vw,16px);margin:30px 0 10px;color:var(--hd);border-bottom:1px solid var(--line2);padding-bottom:6px}
+h3{font-size:13px;color:var(--accent);margin:16px 0 6px}
+a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+.dim{color:var(--dim)}
+.pages{display:flex;border:1px solid var(--line2);border-radius:10px;overflow:hidden;width:max-content;max-width:100%;margin:10px 0 16px}
+.pages a{padding:8px 18px;font-size:13px;font-weight:600;color:var(--fg);background:var(--panel);border-right:1px solid var(--line2)}
+.pages a.here{background:#1f6feb;color:#fff}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{color:var(--dim);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line2);font-size:11px;text-transform:uppercase}
+td{padding:7px 10px;border-bottom:1px solid var(--line)}
+tr.fire td{background:#2d1517}
+
+.ind{margin:14px 0}
+.ind .kicker{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px}
+.ind-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.ind-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.ind-card .v{font-size:20px;color:var(--hd);font-variant-numeric:tabular-nums;font-family:ui-monospace,Menlo,monospace}
+.ind-card .l{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.03em}
+.ind-card .s{font-size:10px;color:var(--dim);margin-top:4px}
+.ind-card.fire{border-color:#f85149;background:#2d1517}
+.ind-flags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.ind-flags span{font-size:11px;border-radius:8px;padding:3px 8px;background:var(--line)}
+.ind-flags span.on{background:#2d1517;color:#f85149}
+.ind-flags span.off{color:var(--dim)}
+.ind-note{font-size:12px;color:var(--dim);margin:8px 0}
+.ind-src{font-size:10px;color:var(--dim)}
+.ind table{min-width:0}
+
+</style></head><body>
+<div class='pages'>
+  <a href='drew.html'>📊 Live Board</a>
+  <a href='comps.html'>🔎 Comps + FoB</a>
+  <a class='here' href='indicators.html'>📈 Indicators</a>
+</div>
+<h1>Collector-car market indicators</h1>
+<div class='dim'>regime overlay on remaining-12/24 desk doctrine — not a second analog, not EXIT_60</div>
+
+<div class='ind'>
+  <p class='ind-note'><b>Regime overlay, not a second analog.</b> remaining-12/24 is still
+  the trade screen. Fire flags are display-only — never auto-trade, never EXIT_60.
+  Tape numbers are this ingested universe (BaT + other houses in car.db), not all of BaT.</p>
+  <div class='kicker'>as-of 2026-09-05</div>
+  <h2>Ingested tape</h2>
+  <div class='ind-grid'>
+    <div class='ind-card'><div class='l'>ST this month</div><div class='v'>79%</div><div class='s'>n=846</div></div>
+    <div class='ind-card'><div class='l'>ST trailing-12m</div><div class='v'>82%</div><div class='s'>n=7127 · history 2018+ n≥10</div><svg class='spark' width='120' height='28' viewBox='0 0 120 28'><polyline points='3.0,10.6 4.1,14.0 5.2,17.1 6.3,10.2 7.4,13.2 8.5,12.4 9.6,21.4 10.7,15.3 11.8,15.1 12.9,20.4 14.0,21.0 15.1,15.0 16.2,16.1 17.2,14.8 18.3,17.1 19.4,9.3 20.5,15.9 21.6,19.6 22.7,19.6 23.8,15.7 24.9,20.7 26.0,24.7 27.1,25.0 28.2,22.0 29.3,12.7 30.4,15.1 31.5,19.9 32.6,15.9 33.7,16.2 34.8,8.8 35.9,10.6 37.0,9.9 38.1,10.4 39.2,9.0 40.3,7.4 41.4,10.1 42.5,9.5 43.6,3.0 44.7,6.1 45.8,3.5 46.8,6.0 47.9,5.0 49.0,5.5 50.1,6.3 51.2,7.4 52.3,6.3 53.4,7.4 54.5,8.6 55.6,5.4 56.7,8.5 57.8,6.2 58.9,10.3 60.0,13.6 61.1,16.3 62.2,15.6 63.3,18.5 64.4,21.1 65.5,17.4 66.6,18.6 67.7,18.4 68.8,12.8 69.9,14.1 71.0,12.5 72.1,11.6 73.2,15.2 74.2,13.8 75.3,17.7 76.4,16.5 77.5,16.2 78.6,19.6 79.7,20.1 80.8,22.0 81.9,16.7 83.0,14.3 84.1,15.7 85.2,12.9 86.3,13.6 87.4,17.3 88.5,19.6 89.6,14.8 90.7,19.4 91.8,13.1 92.9,11.9 94.0,10.7 95.1,9.9 96.2,12.4 97.3,13.0 98.4,9.4 99.5,7.2 100.6,10.5 101.7,8.2 102.8,10.7 103.8,13.3 104.9,12.4 106.0,11.5 107.1,12.7 108.2,7.9 109.3,10.1 110.4,9.9 111.5,5.5 112.6,6.2 113.7,7.8 114.8,10.2 115.9,12.2 117.0,10.7' fill='none' stroke='#58a6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg></div>
+    <div class='ind-card'><div class='l'>Trophy RNM T12m</div><div class='v'>19%</div></div>
+    <div class='ind-card'><div class='l'>Driver RNM T12m</div><div class='v'>15%</div></div>
+    <div class='ind-card'><div class='l'>Trophy−driver spread</div><div class='v'>+3.9pt</div><div class='s'>vs prior -0.5pt · basket locked 2026-09-02</div></div>
+    <div class='ind-card'><div class='l'>Manual share raw</div><div class='v'>64%</div><div class='s'>composition — can be mix-biased</div></div>
+    <div class='ind-card'><div class='l'>Manual share same-book</div><div class='v'>60%</div><div class='s'>median-of-books 64% · 47 dual books</div></div>
+    <div class='ind-card'><div class='l'>6MT vs auto/F1/tiptronic</div><div class='v'>-4%</div><div class='s'>naive mix, not a premium</div></div>
+    <div class='ind-card'><div class='l'>Same-book manual premium</div><div class='v'>42%</div><div class='s'>T12m dual-book, min-n per side; not weekly_read</div></div>
+    <div class='ind-card'><div class='l'>Weekly stall</div><div class='v'>20%</div><div class='s'>weekly_read.stall_metrics</div></div>
+    <div class='ind-card'><div class='l'>Reserve gap</div><div class='v'>55%</div><div class='s'>weekly_read — at-market money turned down</div></div>
+    <div class='ind-card'><div class='l'>Boat-left analog books</div><div class='v'>21</div><div class='s'>of 175 eligible · car_id+trans+sub_variant</div></div>
+    <div class='ind-card'><div class='l'>Flipper share</div><div class='v'>7%</div><div class='s'>same VIN re-list ≤ 18m · n=39434</div></div>
+    <div class='ind-card'><div class='l'>Bid depth</div><div class='v'>median 5.0 bidders / 6.0 bids (n=49242)</div><div class='s'>lot_stats endgame snapshots</div></div>
+    <div class='ind-card'><div class='l'>BCV p20 (median of cars)</div><div class='v'>$39,875</div><div class='s'>BCV p20 (clean 12m, analysis.bcv.bcv)</div></div>
+    <div class='ind-card'><div class='l'>90d floor p25 (median of cars)</div><div class='v'>$47,250</div><div class='s'>90d floor p25 all-in (serve._floor_90d)</div></div>
+  </div>
+  <p class='ind-src'>Trophy skipped (no tape): none · Driver skipped: none
+  · &gt;$250k overlay ST T12m 84%
+  (parallel overlay, not trophy identity)</p>
+  <p class='ind-src'>30d tier index (market_index.py, 100 = own 24m norm): blue_chip 145 · air_cooled 110 · driver_exotic 120 · jdm 116 · donor_auto 110 · modern_value 117 · ech_hack 98</p>
+
+  <h2>Price-band median change (K-shape instrument) + ST</h2>
+  <p class='ind-src'>This universe is enthusiast cars on ingested tape, not Hagerty&#x27;s ~$26k median market. K-shape instrument is median YoY and 90d-vs-T12m by band, not ST.</p>
+  <div class='scroll'><table><thead><tr><th>band</th><th>ST T12m</th><th>median T12m</th><th>median YoY</th><th>90d vs T12m</th><th>n</th></tr></thead>
+  <tbody><tr><td>under $50k</td><td>81%</td><td>$25,750</td><td>0%</td><td>3%</td><td>3525</td></tr><tr><td>$50–100k</td><td>83%</td><td>$70,500</td><td>0%</td><td>-1%</td><td>1709</td></tr><tr><td>$100–250k</td><td>83%</td><td>$141,000</td><td>4%</td><td>1%</td><td>1417</td></tr><tr><td>over $250k</td><td>84%</td><td>$350,000</td><td>-3%</td><td>0%</td><td>438</td></tr></tbody></table></div>
+
+  <h2>Real book CAGR by cohort (economics.real_cagr · CPI deflate)</h2>
+  <div class='scroll'><table><thead><tr><th>basket</th><th>clean</th><th>mixed</th><th>n cars</th></tr></thead>
+  <tbody><tr><td>Y2K-analog</td><td>-1.4%</td><td>-1.6%</td><td>18</td></tr><tr><td>Trophy (basket car_ids, all trans)</td><td>+2.6%</td><td>+2.6%</td><td>9</td></tr><tr><td>Air-cooled</td><td>+2.4%</td><td>+2.5%</td><td>4</td></tr><tr><td>Modern-exotic</td><td>+1.2%</td><td>+1.3%</td><td>12</td></tr></tbody></table></div>
+
+  <h2>Fire flags <span class='dim'>(display only — never auto-trade)</span></h2>
+  <div class='scroll'><table><thead><tr><th></th><th>rule</th><th>detail</th><th>source</th></tr></thead>
+  <tbody><tr class=''><td>·</td><td>trophy_driver_rnm_widen_8pt</td><td>trophy−driver RNM spread 3.9pt (-0.5pt vs prior T12m)</td><td class='dim'>ingested-tape</td></tr><tr class=''><td>·</td><td>real10y_down_75bp_m2_accel</td><td>no FRED 10y real; M2 acceleration unknown</td><td class='dim'>fred</td></tr><tr class=''><td>·</td><td>used_cpi_or_manheim_plus10_yoy</td><td>used-CPI YoY n/a; Manheim YoY n/a</td><td class='dim'>fred/manheim</td></tr><tr class=''><td>·</td><td>st_below_75_two_quarters</td><td>2026-Q2 86% · 2026-Q3 80% (ingested tape, not all of BaT)</td><td class='dim'>ingested-tape</td></tr><tr class=''><td>·</td><td>y2k_trends_2x_and_poster_clock</td><td>5 Y2K books near poster-clock peak; Google Trends optional/best-effort — no 2× print this run</td><td class='dim'>poster-clock + trends</td></tr><tr class=''><td>·</td><td>maintenance_cpi_plus15_from_base</td><td>no CUSR0000SETD vs base 2020-01-01</td><td class='dim'>fred.CUSR0000SETD</td></tr></tbody></table></div>
+
+  <h2>External series</h2>
+  <div class='ind-grid'><div class='ind-card'><div class='l'>10y real rate</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>Fed funds (DFF)</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>M2 weekly</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>CPI used cars</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>CPI maint. (SETD)</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>S&amp;P 500</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>CC delinquency</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>Hagerty rating</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>Hagerty index</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>Hagerty Hundred</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>Hagerty Blue Chip</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>Hagerty Supercars</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>HAGI Top</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>HAGI F</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>Manheim MUVVI</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div><div class='ind-card'><div class='l'>BaT official ST</div><div class='v'>HOLE</div><div class='s'>see holes table · public source only</div></div></div>
+  <h3>Holes (public source only — no credentials)</h3>
+  <div class='scroll'><table><thead><tr><th>series</th><th>reason</th><th>url</th></tr></thead>
+  <tbody><tr><td>—</td><td>none this run</td><td></td></tr></tbody></table></div>
+
+  <h2>Poster-car clock (launch + 30 = peak-wallet) — near peak now</h2>
+  <div class='scroll'><table><thead><tr><th>car</th><th>launch</th><th>peak wallet</th><th>vs now</th></tr></thead>
+  <tbody><tr><td>Pontiac Firebird / Trans Am (4th gen, 1993-2002)</td><td>1993</td><td>2023</td><td>+3y</td></tr><tr><td>Toyota Supra A80 (Mk4)</td><td>1993</td><td>2023</td><td>+3y</td></tr><tr><td>Aston Martin DB7</td><td>1994</td><td>2024</td><td>+2y</td></tr><tr><td>Ferrari F355</td><td>1994</td><td>2024</td><td>+2y</td></tr><tr><td>Subaru Impreza WRX STI (GC)</td><td>1994</td><td>2024</td><td>+2y</td></tr><tr><td>Honda/Acura Integra Type R (DC2)</td><td>1995</td><td>2025</td><td>+1y</td></tr><tr><td>Porsche 993 911</td><td>1995</td><td>2025</td><td>+1y</td></tr><tr><td>Ferrari 550 Maranello</td><td>1996</td><td>2026</td><td>+0y</td></tr><tr><td>Mitsubishi Lancer Evolution IV–VI</td><td>1996</td><td>2026</td><td>+0y</td></tr><tr><td>Chevrolet Corvette C5 (1997-2004)</td><td>1997</td><td>2027</td><td>-1y</td></tr><tr><td>Porsche Boxster (986)</td><td>1997</td><td>2027</td><td>-1y</td></tr><tr><td>BMW E39 M5</td><td>1998</td><td>2028</td><td>-2y</td></tr><tr><td>BMW Z3 M Coupe (clownshoe)</td><td>1998</td><td>2028</td><td>-2y</td></tr><tr><td>Ferrari 360</td><td>1999</td><td>2029</td><td>-3y</td></tr><tr><td>Honda S2000</td><td>1999</td><td>2029</td><td>-3y</td></tr><tr><td>Honda S2000 AP1</td><td>1999</td><td>2029</td><td>-3y</td></tr><tr><td>Porsche 996 GT3</td><td>1999</td><td>2029</td><td>-3y</td></tr></tbody></table></div>
+
+  <h2>25-year US import unlock (JDM books on tape)</h2>
+  <div class='scroll'><table><thead><tr><th>book</th><th>years</th><th>unlock window</th><th>note</th></tr></thead>
+  <tbody><tr><td>Nissan Skyline GT-R (R32/R33/R34)</td><td>1989–2002</td><td>2014–2027</td><td>R32 unlocked 2014–19; R33 2020–23; R34 2024–27 (still unlocking).</td></tr><tr><td>Mitsubishi Lancer Evolution I–III</td><td>1992–1995</td><td>2017–2020</td><td>Fully unlocked.</td></tr><tr><td>Mitsubishi Lancer Evolution IV–VI</td><td>1996–2001</td><td>2021–2026</td><td>VI (2001) unlocks 2026.</td></tr><tr><td>Mitsubishi Lancer Evolution VII–IX</td><td>2002–2007</td><td>2027–2032</td><td>US had Evo VIII/IX; JDM VII and some IX variants still on the clock.</td></tr><tr><td>Mitsubishi Lancer Evolution X</td><td>2008–2016</td><td>2033–2041</td><td>US-federalized 2008–15; JDM Final Edition etc. still on the 25-year clock.</td></tr><tr><td>Honda/Acura Integra Type R (DC2)</td><td>1995–2001</td><td>2020–2026</td><td>US ITR 1997–98/2000–01 were federalized; JDM DC2 still unlocking through 2026.</td></tr><tr><td>Honda Integra Type R (DC5)</td><td>2002–2006</td><td>2027–2031</td><td>Never sold as Type R in the US (RSX Type-S is a different book).</td></tr><tr><td>Subaru Impreza WRX STI (GC)</td><td>1994–2000</td><td>2019–2025</td><td>No US STI in this gen. Fully unlocking through 2025.</td></tr><tr><td>Subaru Impreza WRX STI (GD)</td><td>2001–2007</td><td>2026–2032</td><td>US STI from 2004; early JDM GD (2001–03) unlocking 2026–28.</td></tr><tr><td>Subaru Impreza WRX STI (GR)</td><td>2008–2014</td><td>2033–2039</td><td>US-federalized; JDM Spec-C / Type RA still on the clock.</td></tr><tr><td>Subaru WRX STI (VA)</td><td>2015–2021</td><td>2040–2046</td><td>US-federalized.</td></tr><tr><td>Toyota Supra A80 (Mk4)</td><td>1993–2002</td><td>2018–2027</td><td>US 1993–98; JDM 1999–02 (RZ etc.) unlocking 2024–27.</td></tr><tr><td>Mazda RX-7 (FD)</td><td>1992–2002</td><td>2017–2027</td><td>US 1993–95; JDM 1996–02 unlocking 2021–27.</td></tr><tr><td>Mazda RX-7 (FC)</td><td>1986–1991</td><td>2011–2016</td><td>US-federalized; fully unlocked.</td></tr><tr><td>Nissan 300ZX (Z32)</td><td>1989–2000</td><td>2014–2025</td><td>US 1990–96; JDM 1997–00 unlocking 2022–25.</td></tr></tbody></table></div>
+</div>
+</body></html>
