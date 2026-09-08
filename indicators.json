@@ -1821,7 +1821,7 @@
       }
     },
     "bid_depth": {
-      "n_samples": 52594,
+      "n_samples": 52954,
       "median_n_bids": 6.0,
       "median_n_bidders": 5.0,
       "source": "lot_stats (endgame snapshots)"
@@ -2591,11 +2591,11 @@
       {
         "as_of": "2026-09-08",
         "value": 5.0,
-        "n": 52594,
+        "n": 52954,
         "unit": "count",
         "source": "ingested-tape",
         "extra": {
-          "n_samples": 52594,
+          "n_samples": 52954,
           "median_n_bids": 6.0,
           "median_n_bidders": 5.0,
           "source": "lot_stats (endgame snapshots)"
