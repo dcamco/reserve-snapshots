@@ -2058,9 +2058,9 @@
       ]
     },
     "flipper": {
-      "share": 0.0724366432292984,
+      "share": 0.07243481119906928,
       "n_flips": 2864,
-      "n_with_vin": 39538,
+      "n_with_vin": 39539,
       "months": 18
     },
     "weekly": {
@@ -2816,8 +2816,8 @@
       },
       {
         "as_of": "2026-09-10",
-        "value": 0.0724366432292984,
-        "n": 39538,
+        "value": 0.07243481119906928,
+        "n": 39539,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
