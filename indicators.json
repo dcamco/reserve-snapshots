@@ -2001,12 +2001,12 @@
       "n_listed": 18
     },
     "manual_share": {
-      "raw_share": 0.6393302579873569,
+      "raw_share": 0.6367674696736716,
       "n_solds": 5853,
-      "n_manual": 3742,
+      "n_manual": 3727,
       "n_dual_books": 47,
-      "same_book_pooled": 0.6005830903790087,
-      "same_book_median": 0.6456692913385826,
+      "same_book_pooled": 0.5960361410667444,
+      "same_book_median": 0.5666666666666667,
       "dual_car_ids": [
         "acura-nsx",
         "alfa-4c",
@@ -2075,11 +2075,11 @@
       "prior_reserve_gap": 0.6071428571428571
     },
     "manual_premium": {
-      "manual_median": 52500.0,
-      "auto_median": 54222.0,
-      "n_manual": 3292,
-      "n_auto": 1813,
-      "naive_premium": -0.031758326878388865,
+      "manual_median": 52000.0,
+      "auto_median": 55000.0,
+      "n_manual": 3279,
+      "n_auto": 1826,
+      "naive_premium": -0.054545454545454564,
       "naive_label": "mix, not premium",
       "same_book_premium": 0.41538461538461546,
       "same_book_premium_pct": 41.53846153846155,
@@ -2866,8 +2866,8 @@
       },
       {
         "as_of": "2026-09-10",
-        "value": -0.031758326878388865,
-        "n": 3292,
+        "value": -0.054545454545454564,
+        "n": 3279,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -2966,7 +2966,7 @@
       },
       {
         "as_of": "2026-09-10",
-        "value": 0.6393302579873569,
+        "value": 0.6367674696736716,
         "n": 5853,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -3016,7 +3016,7 @@
       },
       {
         "as_of": "2026-09-10",
-        "value": 0.6005830903790087,
+        "value": 0.5960361410667444,
         "n": 47,
         "unit": "fraction",
         "source": "ingested-tape",
