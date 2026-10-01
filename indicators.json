@@ -2578,6 +2578,46 @@
     }
   },
   "external": {
+    "hagerty.market_index": [
+      {
+        "as_of": "2026-10-01",
+        "value": 0.0,
+        "n": null,
+        "unit": "index",
+        "source": "hagerty-public",
+        "extra": {
+          "url": "https://www.hagerty.com/media/market-trends/hagerty-insider/hagerty-market-rating/monthly-market-report-august-2026/",
+          "label": "Hagerty Market Index (open-ended)"
+        }
+      }
+    ],
+    "hagerty.market_rating": [
+      {
+        "as_of": "2026-10-01",
+        "value": 58.74,
+        "n": null,
+        "unit": "0-100",
+        "source": "hagerty-public",
+        "extra": {
+          "url": "https://www.hagerty.com/media/market-trends/hagerty-insider/hagerty-market-rating/monthly-market-report-august-2026/",
+          "explainer": "https://www.hagerty.com/media/market-trends/hagerty-insider/how-the-hagerty-market-rating-works/"
+        }
+      }
+    ],
+    "manheim.muvvi": [
+      {
+        "as_of": "2026-10-01",
+        "value": 208.2,
+        "n": null,
+        "unit": "index",
+        "source": "manheim-public",
+        "extra": {
+          "url": "https://www.coxautoinc.com/insights/manheim-used-vehicle-value-index-august-2026-trends/",
+          "yoy_pct": 1.8,
+          "note": "adjacent used-car liquidity, NOT collector heat"
+        }
+      }
+    ],
     "tape.bid_depth_n_bidders": [
       {
         "as_of": "2026-09-05",
@@ -21652,7 +21692,7 @@
     {
       "id": "used_cpi_or_manheim_plus10_yoy",
       "fired": false,
-      "detail": "used-CPI YoY n/a; Manheim YoY n/a",
+      "detail": "used-CPI YoY n/a; Manheim YoY 1.8% (adjacent used-car liquidity, NOT collector heat)",
       "source": "fred/manheim",
       "display_only": true
     },
