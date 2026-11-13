@@ -1854,7 +1854,7 @@
       }
     },
     "bid_depth": {
-      "n_samples": 64869,
+      "n_samples": 65109,
       "median_n_bids": 7,
       "median_n_bidders": 5,
       "source": "lot_stats (endgame snapshots)"
@@ -2047,8 +2047,8 @@
       "n_sold": 127,
       "days": 7,
       "source": "weekly_read.stall_metrics",
-      "prior_ns_rate": 0.2248062015503876,
-      "prior_reserve_gap": 0.4482758620689655
+      "prior_ns_rate": 0.22641509433962265,
+      "prior_reserve_gap": 0.42857142857142855
     },
     "manual_premium": {
       "manual_median": 54500.0,
@@ -3434,11 +3434,11 @@
       {
         "as_of": "2026-11-13",
         "value": 5.0,
-        "n": 64869,
+        "n": 65109,
         "unit": "count",
         "source": "ingested-tape",
         "extra": {
-          "n_samples": 64869,
+          "n_samples": 65109,
           "median_n_bids": 7,
           "median_n_bidders": 5,
           "source": "lot_stats (endgame snapshots)"
@@ -46547,8 +46547,8 @@
           "n_sold": 127,
           "days": 7,
           "source": "weekly_read.stall_metrics",
-          "prior_ns_rate": 0.2248062015503876,
-          "prior_reserve_gap": 0.4482758620689655
+          "prior_ns_rate": 0.22641509433962265,
+          "prior_reserve_gap": 0.42857142857142855
         }
       }
     ]
