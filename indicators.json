@@ -8,16 +8,16 @@
       "definition": "hack_scan.sell_through / serve.sell_through: sold/(sold+no_sale), category=road",
       "history_rule": "sparklines/history: months 2018-01+ with n\u226510; headline month/T12m use full tape",
       "month": {
-        "sold": 596,
-        "no_sale": 231,
-        "n": 827,
-        "rate": 0.720677146311971
+        "sold": 624,
+        "no_sale": 240,
+        "n": 864,
+        "rate": 0.7222222222222222
       },
       "t12": {
-        "sold": 6270,
-        "no_sale": 1483,
-        "n": 7753,
-        "rate": 0.8087192054688508
+        "sold": 6299,
+        "no_sale": 1492,
+        "n": 7791,
+        "rate": 0.80849698369914
       },
       "monthly_history": [
         {
@@ -757,17 +757,17 @@
         },
         {
           "month": "2026-10",
-          "sold": 651,
+          "sold": 652,
           "no_sale": 213,
-          "n": 864,
-          "rate": 0.7534722222222222
+          "n": 865,
+          "rate": 0.753757225433526
         },
         {
           "month": "2026-11",
-          "sold": 298,
-          "no_sale": 118,
-          "n": 416,
-          "rate": 0.7163461538461539
+          "sold": 326,
+          "no_sale": 127,
+          "n": 453,
+          "rate": 0.7196467991169978
         }
       ],
       "t12_history": [
@@ -1403,15 +1403,15 @@
         },
         {
           "month": "2026-10",
-          "sold": 6239,
-          "n": 7675,
-          "rate": 0.8128990228013029
+          "sold": 6240,
+          "n": 7676,
+          "rate": 0.8129233976029182
         },
         {
           "month": "2026-11",
-          "sold": 6089,
-          "n": 7531,
-          "rate": 0.8085247643075288
+          "sold": 6118,
+          "n": 7569,
+          "rate": 0.8082970009248249
         }
       ],
       "quarterly": [
@@ -1661,11 +1661,11 @@
           "no_sale": 483
         },
         {
-          "sold": 949,
-          "n": 1280,
+          "sold": 978,
+          "n": 1318,
           "quarter": "2026-Q4",
-          "rate": 0.74140625,
-          "no_sale": 331
+          "rate": 0.7420333839150227,
+          "no_sale": 340
         }
       ]
     },
@@ -1703,20 +1703,20 @@
           ]
         },
         "trophy": {
-          "sold": 416,
-          "no_sale": 120,
-          "n": 536,
-          "rate": 0.7761194029850746,
-          "rnm": 0.22388059701492535
+          "sold": 418,
+          "no_sale": 121,
+          "n": 539,
+          "rate": 0.7755102040816326,
+          "rnm": 0.22448979591836737
         },
         "driver": {
-          "sold": 858,
-          "no_sale": 157,
-          "n": 1015,
-          "rate": 0.8453201970443349,
-          "rnm": 0.15467980295566508
+          "sold": 862,
+          "no_sale": 161,
+          "n": 1023,
+          "rate": 0.8426197458455523,
+          "rnm": 0.15738025415444767
         },
-        "spread_pts": 6.9
+        "spread_pts": 6.7
       },
       "prior_t12": {
         "skipped": {
@@ -1765,13 +1765,13 @@
         },
         "spread_pts": 5.4
       },
-      "spread_vs_prior_pts": 1.5,
+      "spread_vs_prior_pts": 1.3,
       "price_overlay_gt250k": {
         "t12": {
-          "sold": 458,
-          "no_sale": 109,
-          "n": 567,
-          "rate": 0.8077601410934744
+          "sold": 460,
+          "no_sale": 110,
+          "n": 570,
+          "rate": 0.8070175438596491
         },
         "note": "parallel overlay, not an identity with the trophy basket"
       }
@@ -1800,8 +1800,8 @@
           "nissan-300zx"
         ],
         "skipped": [],
-        "clean": -0.012640151539855093,
-        "mixed": -0.013426093734564382
+        "clean": -0.012694128217426881,
+        "mixed": -0.013299511304435518
       },
       "trophy": {
         "label": "Trophy (basket car_ids, all trans)",
@@ -1817,8 +1817,8 @@
           "porsche-991-gt3"
         ],
         "skipped": [],
-        "clean": 0.03563463157477886,
-        "mixed": 0.03398341877804545
+        "clean": 0.035622178993399256,
+        "mixed": 0.03395808847135906
       },
       "air_cooled": {
         "label": "Air-cooled",
@@ -1829,8 +1829,8 @@
           "porsche-993"
         ],
         "skipped": [],
-        "clean": 0.026791216487001668,
-        "mixed": 0.02736328176401348
+        "clean": 0.026763046408129876,
+        "mixed": 0.027765251534467517
       },
       "modern_exotic": {
         "label": "Modern-exotic",
@@ -1849,8 +1849,8 @@
           "mclaren-720s"
         ],
         "skipped": [],
-        "clean": 0.016079208171587256,
-        "mixed": 0.0146958093446794
+        "clean": 0.016227281508692126,
+        "mixed": 0.014112861743184713
       }
     },
     "bid_depth": {
@@ -1930,9 +1930,9 @@
           "transmission": "manual",
           "sub_variant": "x50",
           "facet": "porsche-996-turbo/manual/x50",
-          "med_90d": 183000.0,
+          "med_90d": 151500.0,
           "med_t12": 120000.0,
-          "ratio": 1.525
+          "ratio": 1.2625
         },
         {
           "car_id": "porsche-panamera-971",
@@ -1948,25 +1948,25 @@
           "transmission": "manual",
           "sub_variant": "gr-base",
           "facet": "subaru-wrx-sti-gr/manual/gr-base",
-          "med_90d": 14650.0,
-          "med_t12": 10300.0,
-          "ratio": 1.4223300970873787
+          "med_90d": 19000.0,
+          "med_t12": 14650.0,
+          "ratio": 1.2969283276450512
         }
       ],
       "ratio": 1.25,
-      "n_tracked": 165,
-      "n_facets_on_tape": 599,
+      "n_tracked": 168,
+      "n_facets_on_tape": 598,
       "grain": "car_id+transmission+sub_variant",
       "min_90d": 3,
       "min_t12": 5,
       "n_listed": 10
     },
     "manual_share": {
-      "raw_share": 0.6210206366981283,
-      "n_solds": 6251,
-      "n_manual": 3882,
+      "raw_share": 0.6221337579617834,
+      "n_solds": 6280,
+      "n_manual": 3907,
       "n_dual_books": 53,
-      "same_book_pooled": 0.6252587991718427,
+      "same_book_pooled": 0.6252897244398661,
       "same_book_median": 0.65,
       "dual_car_ids": [
         "acura-nsx",
@@ -2025,28 +2025,28 @@
       ]
     },
     "flipper": {
-      "share": 0.07356889442899607,
-      "n_flips": 3069,
-      "n_with_vin": 41716,
+      "share": 0.0735614568616652,
+      "n_flips": 3072,
+      "n_with_vin": 41761,
       "months": 18
     },
     "weekly": {
-      "ns_rate": 0.3125,
-      "reserve_gap": 0.35135135135135137,
-      "n_resolved": 128,
-      "n_nosale": 40,
-      "n_sold": 88,
+      "ns_rate": 0.3006134969325153,
+      "reserve_gap": 0.37777777777777777,
+      "n_resolved": 163,
+      "n_nosale": 49,
+      "n_sold": 114,
       "days": 7,
       "source": "weekly_read.stall_metrics",
       "prior_ns_rate": 0.327683615819209,
       "prior_reserve_gap": 0.3148148148148148
     },
     "manual_premium": {
-      "manual_median": 54500.0,
-      "auto_median": 60550.0,
-      "n_manual": 3415,
-      "n_auto": 2029,
-      "naive_premium": -0.09991742361684564,
+      "manual_median": 54000.0,
+      "auto_median": 61000.0,
+      "n_manual": 3438,
+      "n_auto": 2037,
+      "naive_premium": -0.11475409836065575,
       "naive_label": "mix, not premium",
       "same_book_premium": 0.458082329317269,
       "same_book_premium_pct": 45.8082329317269,
@@ -2059,58 +2059,58 @@
     "tier_index": [
       {
         "tier": "blue_chip",
-        "index_30d": 117,
-        "index_30d_real": 116,
+        "index_30d": 115,
+        "index_30d_real": 115,
         "prior_90d": 128,
-        "n_now": 28,
+        "n_now": 29,
         "n_prior": 68
       },
       {
         "tier": "air_cooled",
-        "index_30d": 102,
-        "index_30d_real": 102,
+        "index_30d": 104,
+        "index_30d_real": 103,
         "prior_90d": 112,
-        "n_now": 58,
+        "n_now": 59,
         "n_prior": 168
       },
       {
         "tier": "driver_exotic",
-        "index_30d": 106,
-        "index_30d_real": 106,
+        "index_30d": 108,
+        "index_30d_real": 108,
         "prior_90d": 116,
-        "n_now": 55,
+        "n_now": 58,
         "n_prior": 209
       },
       {
         "tier": "jdm",
-        "index_30d": 120,
-        "index_30d_real": 120,
+        "index_30d": 118,
+        "index_30d_real": 117,
         "prior_90d": 111,
-        "n_now": 34,
+        "n_now": 36,
         "n_prior": 112
       },
       {
         "tier": "donor_auto",
-        "index_30d": 129,
-        "index_30d_real": 129,
+        "index_30d": 128,
+        "index_30d_real": 128,
         "prior_90d": 107,
-        "n_now": 13,
+        "n_now": 14,
         "n_prior": 34
       },
       {
         "tier": "modern_value",
-        "index_30d": 107,
+        "index_30d": 106,
         "index_30d_real": 106,
         "prior_90d": 111,
-        "n_now": 188,
+        "n_now": 197,
         "n_prior": 606
       },
       {
         "tier": "ech_hack",
-        "index_30d": 133,
-        "index_30d_real": 133,
+        "index_30d": 129,
+        "index_30d_real": 129,
         "prior_90d": 98,
-        "n_now": 14,
+        "n_now": 16,
         "n_prior": 35
       }
     ],
@@ -2120,56 +2120,56 @@
         "label": "under $50k",
         "lo": 0,
         "hi": 50000,
-        "sold": 2971,
-        "no_sale": 725,
-        "n": 3696,
-        "rate": 0.8038419913419913,
+        "sold": 2984,
+        "no_sale": 728,
+        "n": 3712,
+        "rate": 0.8038793103448276,
         "median": 26000.0,
         "median_t12": 26000.0,
-        "n_t12_sold": 2971,
+        "n_t12_sold": 2984,
         "median_prior_t12": 25750.0,
         "n_prior_sold": 2757,
         "yoy": 0.009708737864077666,
-        "median_90d": 26250.0,
-        "n_90d_sold": 843,
-        "vs_t12": 0.009615384615384581
+        "median_90d": 26000.0,
+        "n_90d_sold": 856,
+        "vs_t12": 0.0
       },
       {
         "key": "50_100k",
         "label": "$50\u2013100k",
         "lo": 50000,
         "hi": 100000,
-        "sold": 1490,
-        "no_sale": 331,
-        "n": 1821,
-        "rate": 0.8182317408017573,
+        "sold": 1494,
+        "no_sale": 333,
+        "n": 1827,
+        "rate": 0.8177339901477833,
         "median": 70500.0,
         "median_t12": 70500.0,
-        "n_t12_sold": 1490,
+        "n_t12_sold": 1494,
         "median_prior_t12": 70675.0,
         "n_prior_sold": 1342,
         "yoy": -0.002476123098691163,
-        "median_90d": 71000.0,
-        "n_90d_sold": 417,
-        "vs_t12": 0.007092198581560183
+        "median_90d": 70500.0,
+        "n_90d_sold": 421,
+        "vs_t12": 0.0
       },
       {
         "key": "100_250k",
         "label": "$100\u2013250k",
         "lo": 100000,
         "hi": 250000,
-        "sold": 1332,
-        "no_sale": 282,
-        "n": 1614,
-        "rate": 0.8252788104089219,
+        "sold": 1342,
+        "no_sale": 284,
+        "n": 1626,
+        "rate": 0.8253382533825339,
         "median": 143250.0,
         "median_t12": 143250.0,
-        "n_t12_sold": 1332,
+        "n_t12_sold": 1342,
         "median_prior_t12": 136375.5,
         "n_prior_sold": 936,
         "yoy": 0.0504086144505429,
         "median_90d": 144000.0,
-        "n_90d_sold": 383,
+        "n_90d_sold": 393,
         "vs_t12": 0.005235602094240788
       },
       {
@@ -2177,19 +2177,19 @@
         "label": "over $250k",
         "lo": 250000,
         "hi": null,
-        "sold": 458,
-        "no_sale": 109,
-        "n": 567,
-        "rate": 0.8077601410934744,
-        "median": 354000.0,
-        "median_t12": 354000.0,
-        "n_t12_sold": 458,
+        "sold": 460,
+        "no_sale": 110,
+        "n": 570,
+        "rate": 0.8070175438596491,
+        "median": 353000.0,
+        "median_t12": 353000.0,
+        "n_t12_sold": 460,
         "median_prior_t12": 356500.0,
         "n_prior_sold": 210,
-        "yoy": -0.007012622720897643,
+        "yoy": -0.009817671809256634,
         "median_90d": 355000.0,
-        "n_90d_sold": 153,
-        "vs_t12": 0.0028248587570620654
+        "n_90d_sold": 155,
+        "vs_t12": 0.0056657223796034994
       }
     ],
     "price_bands_note": "This universe is enthusiast cars on ingested tape, not Hagerty's ~$26k median market. K-shape instrument is median YoY and 90d-vs-T12m by band, not ST.",
@@ -2201,7 +2201,7 @@
       },
       "floor_90d_p25": {
         "label": "90d floor p25 all-in (serve._floor_90d)",
-        "median": 46252.5,
+        "median": 45937.5,
         "n_cars": 89
       }
     },
@@ -4097,7 +4097,7 @@
       {
         "as_of": "2026-11-18",
         "value": 10.0,
-        "n": 165,
+        "n": 168,
         "unit": "count",
         "source": "ingested-tape",
         "extra": null
@@ -5142,16 +5142,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.15467980295566508,
-        "n": 1015,
+        "value": 0.15738025415444767,
+        "n": 1023,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
-          "sold": 858,
-          "no_sale": 157,
-          "n": 1015,
-          "rate": 0.8453201970443349,
-          "rnm": 0.15467980295566508
+          "sold": 862,
+          "no_sale": 161,
+          "n": 1023,
+          "rate": 0.8426197458455523,
+          "rnm": 0.15738025415444767
         }
       }
     ],
@@ -5750,8 +5750,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.07356889442899607,
-        "n": 41716,
+        "value": 0.0735614568616652,
+        "n": 41761,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -6352,8 +6352,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": -0.09991742361684564,
-        "n": 3415,
+        "value": -0.11475409836065575,
+        "n": 3438,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -7556,8 +7556,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.6210206366981283,
-        "n": 6251,
+        "value": 0.6221337579617834,
+        "n": 6280,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -8158,7 +8158,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.6252587991718427,
+        "value": 0.6252897244398661,
         "n": 53,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -8761,7 +8761,7 @@
       {
         "as_of": "2026-11-18",
         "value": 143250.0,
-        "n": 1332,
+        "n": 1342,
         "unit": "usd",
         "source": "ingested-tape",
         "extra": null
@@ -9363,7 +9363,7 @@
       {
         "as_of": "2026-11-18",
         "value": 0.005235602094240788,
-        "n": 383,
+        "n": 393,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -9965,7 +9965,7 @@
       {
         "as_of": "2026-11-18",
         "value": 0.0504086144505429,
-        "n": 1332,
+        "n": 1342,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -10567,7 +10567,7 @@
       {
         "as_of": "2026-11-18",
         "value": 70500.0,
-        "n": 1490,
+        "n": 1494,
         "unit": "usd",
         "source": "ingested-tape",
         "extra": null
@@ -11168,8 +11168,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.007092198581560183,
-        "n": 417,
+        "value": 0.0,
+        "n": 421,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -11771,7 +11771,7 @@
       {
         "as_of": "2026-11-18",
         "value": -0.002476123098691163,
-        "n": 1490,
+        "n": 1494,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -12372,8 +12372,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 354000.0,
-        "n": 458,
+        "value": 353000.0,
+        "n": 460,
         "unit": "usd",
         "source": "ingested-tape",
         "extra": null
@@ -12974,8 +12974,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.0028248587570620654,
-        "n": 153,
+        "value": 0.0056657223796034994,
+        "n": 155,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -13576,8 +13576,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": -0.007012622720897643,
-        "n": 458,
+        "value": -0.009817671809256634,
+        "n": 460,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -14179,7 +14179,7 @@
       {
         "as_of": "2026-11-18",
         "value": 26000.0,
-        "n": 2971,
+        "n": 2984,
         "unit": "usd",
         "source": "ingested-tape",
         "extra": null
@@ -14780,8 +14780,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.009615384615384581,
-        "n": 843,
+        "value": 0.0,
+        "n": 856,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -15383,7 +15383,7 @@
       {
         "as_of": "2026-11-18",
         "value": 0.009708737864077666,
-        "n": 2971,
+        "n": 2984,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -16576,7 +16576,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.026791216487001668,
+        "value": 0.026763046408129876,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -17186,7 +17186,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.02736328176401348,
+        "value": 0.027765251534467517,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -18972,7 +18972,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.016079208171587256,
+        "value": 0.016227281508692126,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -19590,7 +19590,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.0146958093446794,
+        "value": 0.014112861743184713,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -21154,7 +21154,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.03563463157477886,
+        "value": 0.035622178993399256,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -21769,7 +21769,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.03398341877804545,
+        "value": 0.03395808847135906,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -23999,7 +23999,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": -0.012640151539855093,
+        "value": -0.012694128217426881,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -24623,7 +24623,7 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": -0.013426093734564382,
+        "value": -0.013299511304435518,
         "n": null,
         "unit": "fraction",
         "source": "ingested-tape",
@@ -26557,8 +26557,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.8252788104089219,
-        "n": 1614,
+        "value": 0.8253382533825339,
+        "n": 1626,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
@@ -26566,18 +26566,18 @@
           "label": "$100\u2013250k",
           "lo": 100000,
           "hi": 250000,
-          "sold": 1332,
-          "no_sale": 282,
-          "n": 1614,
-          "rate": 0.8252788104089219,
+          "sold": 1342,
+          "no_sale": 284,
+          "n": 1626,
+          "rate": 0.8253382533825339,
           "median": 143250.0,
           "median_t12": 143250.0,
-          "n_t12_sold": 1332,
+          "n_t12_sold": 1342,
           "median_prior_t12": 136375.5,
           "n_prior_sold": 936,
           "yoy": 0.0504086144505429,
           "median_90d": 144000.0,
-          "n_90d_sold": 383,
+          "n_90d_sold": 393,
           "vs_t12": 0.005235602094240788
         }
       }
@@ -28509,8 +28509,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.8182317408017573,
-        "n": 1821,
+        "value": 0.8177339901477833,
+        "n": 1827,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
@@ -28518,19 +28518,19 @@
           "label": "$50\u2013100k",
           "lo": 50000,
           "hi": 100000,
-          "sold": 1490,
-          "no_sale": 331,
-          "n": 1821,
-          "rate": 0.8182317408017573,
+          "sold": 1494,
+          "no_sale": 333,
+          "n": 1827,
+          "rate": 0.8177339901477833,
           "median": 70500.0,
           "median_t12": 70500.0,
-          "n_t12_sold": 1490,
+          "n_t12_sold": 1494,
           "median_prior_t12": 70675.0,
           "n_prior_sold": 1342,
           "yoy": -0.002476123098691163,
-          "median_90d": 71000.0,
-          "n_90d_sold": 417,
-          "vs_t12": 0.007092198581560183
+          "median_90d": 70500.0,
+          "n_90d_sold": 421,
+          "vs_t12": 0.0
         }
       }
     ],
@@ -30461,8 +30461,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.8077601410934744,
-        "n": 567,
+        "value": 0.8070175438596491,
+        "n": 570,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
@@ -30470,19 +30470,19 @@
           "label": "over $250k",
           "lo": 250000,
           "hi": null,
-          "sold": 458,
-          "no_sale": 109,
-          "n": 567,
-          "rate": 0.8077601410934744,
-          "median": 354000.0,
-          "median_t12": 354000.0,
-          "n_t12_sold": 458,
+          "sold": 460,
+          "no_sale": 110,
+          "n": 570,
+          "rate": 0.8070175438596491,
+          "median": 353000.0,
+          "median_t12": 353000.0,
+          "n_t12_sold": 460,
           "median_prior_t12": 356500.0,
           "n_prior_sold": 210,
-          "yoy": -0.007012622720897643,
+          "yoy": -0.009817671809256634,
           "median_90d": 355000.0,
-          "n_90d_sold": 153,
-          "vs_t12": 0.0028248587570620654
+          "n_90d_sold": 155,
+          "vs_t12": 0.0056657223796034994
         }
       }
     ],
@@ -32413,8 +32413,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.8038419913419913,
-        "n": 3696,
+        "value": 0.8038793103448276,
+        "n": 3712,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
@@ -32422,19 +32422,19 @@
           "label": "under $50k",
           "lo": 0,
           "hi": 50000,
-          "sold": 2971,
-          "no_sale": 725,
-          "n": 3696,
-          "rate": 0.8038419913419913,
+          "sold": 2984,
+          "no_sale": 728,
+          "n": 3712,
+          "rate": 0.8038793103448276,
           "median": 26000.0,
           "median_t12": 26000.0,
-          "n_t12_sold": 2971,
+          "n_t12_sold": 2984,
           "median_prior_t12": 25750.0,
           "n_prior_sold": 2757,
           "yoy": 0.009708737864077666,
-          "median_90d": 26250.0,
-          "n_90d_sold": 843,
-          "vs_t12": 0.009615384615384581
+          "median_90d": 26000.0,
+          "n_90d_sold": 856,
+          "vs_t12": 0.0
         }
       }
     ],
@@ -33911,30 +33911,30 @@
       },
       {
         "as_of": "2026-10-01",
-        "value": 0.7534722222222222,
-        "n": 864,
+        "value": 0.753757225433526,
+        "n": 865,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
           "month": "2026-10",
-          "sold": 651,
+          "sold": 652,
           "no_sale": 213,
-          "n": 864,
-          "rate": 0.7534722222222222
+          "n": 865,
+          "rate": 0.753757225433526
         }
       },
       {
         "as_of": "2026-11-01",
-        "value": 0.7163461538461539,
-        "n": 416,
+        "value": 0.7196467991169978,
+        "n": 453,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
           "month": "2026-11",
-          "sold": 298,
-          "no_sale": 118,
-          "n": 416,
-          "rate": 0.7163461538461539
+          "sold": 326,
+          "no_sale": 127,
+          "n": 453,
+          "rate": 0.7196467991169978
         }
       }
     ],
@@ -34903,15 +34903,15 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.720677146311971,
-        "n": 827,
+        "value": 0.7222222222222222,
+        "n": 864,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
-          "sold": 596,
-          "no_sale": 231,
-          "n": 827,
-          "rate": 0.720677146311971
+          "sold": 624,
+          "no_sale": 240,
+          "n": 864,
+          "rate": 0.7222222222222222
         }
       }
     ],
@@ -35408,16 +35408,16 @@
       },
       {
         "as_of": "2026-Q4",
-        "value": 0.74140625,
-        "n": 1280,
+        "value": 0.7420333839150227,
+        "n": 1318,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
-          "sold": 949,
-          "n": 1280,
+          "sold": 978,
+          "n": 1318,
           "quarter": "2026-Q4",
-          "rate": 0.74140625,
-          "no_sale": 331
+          "rate": 0.7420333839150227,
+          "no_sale": 340
         }
       }
     ],
@@ -36789,28 +36789,28 @@
       },
       {
         "as_of": "2026-10-01",
-        "value": 0.8128990228013029,
-        "n": 7675,
+        "value": 0.8129233976029182,
+        "n": 7676,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
           "month": "2026-10",
-          "sold": 6239,
-          "n": 7675,
-          "rate": 0.8128990228013029
+          "sold": 6240,
+          "n": 7676,
+          "rate": 0.8129233976029182
         }
       },
       {
         "as_of": "2026-11-01",
-        "value": 0.8085247643075288,
-        "n": 7531,
+        "value": 0.8082970009248249,
+        "n": 7569,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
           "month": "2026-11",
-          "sold": 6089,
-          "n": 7531,
-          "rate": 0.8085247643075288
+          "sold": 6118,
+          "n": 7569,
+          "rate": 0.8082970009248249
         }
       }
     ],
@@ -37779,15 +37779,15 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.8087192054688508,
-        "n": 7753,
+        "value": 0.80849698369914,
+        "n": 7791,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
-          "sold": 6270,
-          "no_sale": 1483,
-          "n": 7753,
-          "rate": 0.8087192054688508
+          "sold": 6299,
+          "no_sale": 1492,
+          "n": 7791,
+          "rate": 0.80849698369914
         }
       }
     ],
@@ -38904,16 +38904,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 102.0,
-        "n": 58,
+        "value": 104.0,
+        "n": 59,
         "unit": "index",
         "source": "ingested-tape",
         "extra": {
           "tier": "air_cooled",
-          "index_30d": 102,
-          "index_30d_real": 102,
+          "index_30d": 104,
+          "index_30d_real": 103,
           "prior_90d": 112,
-          "n_now": 58,
+          "n_now": 59,
           "n_prior": 168
         }
       }
@@ -40031,16 +40031,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 117.0,
-        "n": 28,
+        "value": 115.0,
+        "n": 29,
         "unit": "index",
         "source": "ingested-tape",
         "extra": {
           "tier": "blue_chip",
-          "index_30d": 117,
-          "index_30d_real": 116,
+          "index_30d": 115,
+          "index_30d_real": 115,
           "prior_90d": 128,
-          "n_now": 28,
+          "n_now": 29,
           "n_prior": 68
         }
       }
@@ -41158,16 +41158,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 129.0,
-        "n": 13,
+        "value": 128.0,
+        "n": 14,
         "unit": "index",
         "source": "ingested-tape",
         "extra": {
           "tier": "donor_auto",
-          "index_30d": 129,
-          "index_30d_real": 129,
+          "index_30d": 128,
+          "index_30d_real": 128,
           "prior_90d": 107,
-          "n_now": 13,
+          "n_now": 14,
           "n_prior": 34
         }
       }
@@ -42285,16 +42285,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 106.0,
-        "n": 55,
+        "value": 108.0,
+        "n": 58,
         "unit": "index",
         "source": "ingested-tape",
         "extra": {
           "tier": "driver_exotic",
-          "index_30d": 106,
-          "index_30d_real": 106,
+          "index_30d": 108,
+          "index_30d_real": 108,
           "prior_90d": 116,
-          "n_now": 55,
+          "n_now": 58,
           "n_prior": 209
         }
       }
@@ -43412,16 +43412,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 133.0,
-        "n": 14,
+        "value": 129.0,
+        "n": 16,
         "unit": "index",
         "source": "ingested-tape",
         "extra": {
           "tier": "ech_hack",
-          "index_30d": 133,
-          "index_30d_real": 133,
+          "index_30d": 129,
+          "index_30d_real": 129,
           "prior_90d": 98,
-          "n_now": 14,
+          "n_now": 16,
           "n_prior": 35
         }
       }
@@ -44539,16 +44539,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 120.0,
-        "n": 34,
+        "value": 118.0,
+        "n": 36,
         "unit": "index",
         "source": "ingested-tape",
         "extra": {
           "tier": "jdm",
-          "index_30d": 120,
-          "index_30d_real": 120,
+          "index_30d": 118,
+          "index_30d_real": 117,
           "prior_90d": 111,
-          "n_now": 34,
+          "n_now": 36,
           "n_prior": 112
         }
       }
@@ -45666,16 +45666,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 107.0,
-        "n": 188,
+        "value": 106.0,
+        "n": 197,
         "unit": "index",
         "source": "ingested-tape",
         "extra": {
           "tier": "modern_value",
-          "index_30d": 107,
+          "index_30d": 106,
           "index_30d_real": 106,
           "prior_90d": 111,
-          "n_now": 188,
+          "n_now": 197,
           "n_prior": 606
         }
       }
@@ -46423,12 +46423,12 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 6.9,
+        "value": 6.7,
         "n": null,
         "unit": "points",
         "source": "ingested-tape",
         "extra": {
-          "vs_prior": 1.5
+          "vs_prior": 1.3
         }
       }
     ],
@@ -47471,16 +47471,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.22388059701492535,
-        "n": 536,
+        "value": 0.22448979591836737,
+        "n": 539,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
-          "sold": 416,
-          "no_sale": 120,
-          "n": 536,
-          "rate": 0.7761194029850746,
-          "rnm": 0.22388059701492535
+          "sold": 418,
+          "no_sale": 121,
+          "n": 539,
+          "rate": 0.7755102040816326,
+          "rnm": 0.22448979591836737
         }
       }
     ],
@@ -48079,8 +48079,8 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.35135135135135137,
-        "n": 128,
+        "value": 0.37777777777777777,
+        "n": 163,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": null
@@ -49421,16 +49421,16 @@
       },
       {
         "as_of": "2026-11-18",
-        "value": 0.3125,
-        "n": 128,
+        "value": 0.3006134969325153,
+        "n": 163,
         "unit": "fraction",
         "source": "ingested-tape",
         "extra": {
-          "ns_rate": 0.3125,
-          "reserve_gap": 0.35135135135135137,
-          "n_resolved": 128,
-          "n_nosale": 40,
-          "n_sold": 88,
+          "ns_rate": 0.3006134969325153,
+          "reserve_gap": 0.37777777777777777,
+          "n_resolved": 163,
+          "n_nosale": 49,
+          "n_sold": 114,
           "days": 7,
           "source": "weekly_read.stall_metrics",
           "prior_ns_rate": 0.327683615819209,
@@ -49444,7 +49444,7 @@
     {
       "id": "trophy_driver_rnm_widen_8pt",
       "fired": false,
-      "detail": "trophy\u2212driver RNM spread 6.9pt (+1.5pt vs prior T12m)",
+      "detail": "trophy\u2212driver RNM spread 6.7pt (+1.3pt vs prior T12m)",
       "source": "ingested-tape",
       "display_only": true
     },
