@@ -36,7 +36,7 @@ a { color:var(--ink); text-decoration:none } a:active, a:hover { color:var(--acc
 }
 </style></head><body>
 <h1>Live Auction Board</h1>
-<div class="sub">BaT lots ending within 24h · generated 11/25 23:51 CST · deal% = bid ÷ model ref (hammer-to-hammer, fees excluded) · ★ = ref confidence</div>
+<div class="sub">BaT lots ending within 24h · generated 11/26 10:49 CST · deal% = bid ÷ model ref (hammer-to-hammer, fees excluded) · ★ = ref confidence</div>
 <div class="bar">
 <button data-f="nr">No reserve</button>
 <button data-f="trk">Tracked</button>
@@ -74,7 +74,7 @@ r.style.display=ok?'':'none';});}
 document.querySelectorAll('.bar button[data-f]').forEach(function(btn){btn.onclick=function(){
 btn.classList.toggle('on');applyF();};});
 // refresh + staleness
-var GEN=1795672269;
+var GEN=1795711767;
 function age(){var m=Math.round((Date.now()/1000-GEN)/60);
 document.getElementById('age').textContent=m<1?'now':m+'m ago';}
 setInterval(age,30000);age();
