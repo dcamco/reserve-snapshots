@@ -36,7 +36,7 @@ a { color:var(--ink); text-decoration:none } a:active, a:hover { color:var(--acc
 }
 </style></head><body>
 <h1>Live Auction Board</h1>
-<div class="sub">BaT lots ending within 24h · generated 11/26 11:48 CST · deal% = bid ÷ model ref (hammer-to-hammer, fees excluded) · ★ = ref confidence</div>
+<div class="sub">BaT lots ending within 24h · generated 11/26 12:49 CST · deal% = bid ÷ model ref (hammer-to-hammer, fees excluded) · ★ = ref confidence</div>
 <div class="bar">
 <button data-f="nr">No reserve</button>
 <button data-f="trk">Tracked</button>
@@ -52,7 +52,8 @@ a { color:var(--ink); text-decoration:none } a:active, a:hover { color:var(--acc
 <div class="twrap"><table id="b">
 <thead><tr><th data-k="end">Ends</th><th data-k="t">Lot</th><th data-k="bid" class="num">Bid</th>
 <th class="num">Ref</th><th data-k="deal" class="num">Deal</th><th class="num">👀</th></tr></thead>
-<tbody></tbody></table></div>
+<tbody><tr data-end="1795802400" data-bid="116000" data-deal="999" data-nr="1" data-trk="0" data-t="carbon-fiber-bodied shelby cobra 427 csx4000r"><td class="cd" data-end="1795802400">—</td><td class="tt"><a href="https://bringatrailer.com/listing/1965-shelby-cobra-csx4000-7-2/" target="_blank" rel="noopener">Carbon-Fiber-Bodied Shelby Cobra 427 CSX4000R</a> <span class=nr>NR</span></td><td class="num" data-l="Bid">$116,000</td><td class="num rf" data-l="Ref"></td><td class="num dl " data-l="Deal"></td><td class="num wc" data-l="👀"></td></tr>
+<tr data-end="1795802400" data-bid="300000" data-deal="999" data-nr="0" data-trk="0" data-t="8k-mile 2014 ferrari f12berlinetta"><td class="cd" data-end="1795802400">—</td><td class="tt"><a href="https://bringatrailer.com/listing/2014-ferrari-f12berlinetta-26/" target="_blank" rel="noopener">8k-Mile 2014 Ferrari F12berlinetta</a></td><td class="num" data-l="Bid">$300,000</td><td class="num rf" data-l="Ref"></td><td class="num dl " data-l="Deal"></td><td class="num wc" data-l="👀"></td></tr></tbody></table></div>
 <script>
 function tick(){var n=Date.now()/1000;document.querySelectorAll('td.cd').forEach(function(c){
 var e=+c.dataset.end,s=e-n;if(s<=0){c.textContent='ended';return}
@@ -74,7 +75,7 @@ r.style.display=ok?'':'none';});}
 document.querySelectorAll('.bar button[data-f]').forEach(function(btn){btn.onclick=function(){
 btn.classList.toggle('on');applyF();};});
 // refresh + staleness
-var GEN=1795715285;
+var GEN=1795718991;
 function age(){var m=Math.round((Date.now()/1000-GEN)/60);
 document.getElementById('age').textContent=m<1?'now':m+'m ago';}
 setInterval(age,30000);age();
