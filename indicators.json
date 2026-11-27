@@ -1854,7 +1854,7 @@
       }
     },
     "bid_depth": {
-      "n_samples": 64771,
+      "n_samples": 65131,
       "median_n_bids": 7,
       "median_n_bidders": 5,
       "source": "lot_stats (endgame snapshots)"
@@ -1937,7 +1937,7 @@
       ],
       "ratio": 1.25,
       "n_tracked": 170,
-      "n_facets_on_tape": 601,
+      "n_facets_on_tape": 602,
       "grain": "car_id+transmission+sub_variant",
       "min_90d": 3,
       "min_t12": 5,
@@ -3591,11 +3591,11 @@
       {
         "as_of": "2026-11-27",
         "value": 5.0,
-        "n": 64771,
+        "n": 65131,
         "unit": "count",
         "source": "ingested-tape",
         "extra": {
-          "n_samples": 64771,
+          "n_samples": 65131,
           "median_n_bids": 7,
           "median_n_bidders": 5,
           "source": "lot_stats (endgame snapshots)"
