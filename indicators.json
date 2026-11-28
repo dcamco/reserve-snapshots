@@ -1854,9 +1854,9 @@
       }
     },
     "bid_depth": {
-      "n_samples": 65493,
-      "median_n_bids": 6,
-      "median_n_bidders": 5,
+      "n_samples": 65598,
+      "median_n_bids": 6.0,
+      "median_n_bidders": 5.0,
       "source": "lot_stats (endgame snapshots)"
     },
     "boat_left": {
@@ -3604,13 +3604,13 @@
       {
         "as_of": "2026-11-28",
         "value": 5.0,
-        "n": 65493,
+        "n": 65598,
         "unit": "count",
         "source": "ingested-tape",
         "extra": {
-          "n_samples": 65493,
-          "median_n_bids": 6,
-          "median_n_bidders": 5,
+          "n_samples": 65598,
+          "median_n_bids": 6.0,
+          "median_n_bidders": 5.0,
           "source": "lot_stats (endgame snapshots)"
         }
       }
